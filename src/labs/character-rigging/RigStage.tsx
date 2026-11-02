@@ -16,7 +16,7 @@ import { sampleClipSmoothed } from '@/scene/animation/smooth';
 import type { PoseDelta } from '@/scene/animation/dsl';
 import { doorwayScene, riggingConfig as config } from '@/labs/lens-and-framing/config';
 import { bendAngle, deltaToLocal, heat, influence, localToDelta, makeRest, perpendicular, poleAngle, poleDirection, rigidify, solveHinge, swing, type Correction, type Delta, type RestFrame } from './rigMath';
-import { JOINTS, fkDeltas, joint, type FkPose, type JointId } from './joints';
+import { JOINTS, fkDeltas, joint, type Axis, type FkPose, type JointId } from './joints';
 import type { Measure } from './exercises';
 
 export type CharacterId = 'bram' | 'pip';
@@ -48,8 +48,15 @@ export interface RigStageProps {
   /** Filled by the stage every frame: the latest IK result as FK deltas, for matching. */
   shared: Shared;
 }
-export interface Shared { ik: Map<string, Required<Delta>>; camera: PerspectiveCamera | null; stats: { vertices: number; joints: number; influences: number } | null; waveU: number }
-export const makeShared = (): Shared => ({ ik: new Map(), camera: null, stats: null, waveU: 0 });
+export type Sliders = Partial<Record<Axis, number>>;
+export interface Shared {
+  ik: Map<string, Required<Delta>>; camera: PerspectiveCamera | null; stats: { vertices: number; joints: number; influences: number } | null; waveU: number;
+  /** World positions a drag needs: the joint's pivot and the end of the bone it swings. */
+  ends: ((id: JointId) => { pivot: Vector3; end: Vector3 } | null) | null;
+  /** FK drag: slider values that swing the joint's bone toward a world point. */
+  aim: ((id: JointId, at: Vector3, current: Sliders) => Sliders | null) | null;
+}
+export const makeShared = (): Shared => ({ ik: new Map(), camera: null, stats: null, waveU: 0, ends: null, aim: null });
 
 export const HEIGHT: Record<CharacterId, number> = { bram: doorwayScene.characters.primary.landmarks.capTop, pip: doorwayScene.characters.secondary.landmarks.capTop };
 const BONES: Record<CharacterId, Record<string, BoneMapping>> = { bram: BRAM_BONES, pip: PIP_BONES };
@@ -256,6 +263,79 @@ class Helpers {
   }
 }
 
+/* ---------- FK drag: point a bone where the pointer is ---------- */
+
+/** The clip part each joint rotates (left side; right mirrors) and the point at the far end of its bone. */
+const SWING: Record<JointId, { part: string; end: string }> = {
+  spine: { part: 'torso', end: 'neck' },
+  head: { part: 'head', end: 'head_end' },
+  shoulder: { part: 'upperArmL', end: 'LeftForeArm' },
+  elbow: { part: 'forearmL', end: 'LeftHand' },
+  wrist: { part: 'handL', end: '' }, // no finger bones: a point along the hand
+  hips: { part: 'thighL', end: 'LeftLeg' },
+  knees: { part: 'shinL', end: 'LeftFoot' },
+};
+/** Twist and turn spin a bone about its own length: they never move its end, so dragging leaves them alone. */
+const AIMED = (name: string) => name !== 'Twist' && name !== 'Turn';
+const tEnd = new Vector3();
+
+function boneEnd(rig: Rig, id: JointId, out: Vector3): Vector3 {
+  const sw = SWING[id], bone = rig.driven.get(sw.part)!.bone;
+  if (sw.end) return rig.bones.get(sw.end)!.getWorldPosition(out);
+  return bone.localToWorld(out.set(0, bone.position.length() * 0.45, 0));
+}
+
+export function jointEnds(rig: Rig, id: JointId) {
+  const d = rig.driven.get(SWING[id].part);
+  if (!d) return null;
+  return { pivot: d.bone.getWorldPosition(new Vector3()), end: boneEnd(rig, id, new Vector3()) };
+}
+
+/**
+ * Slider values that swing a joint's bone toward a world point, within the joint's limits. A small
+ * coordinate descent over the joint's own axes, so hinges stay hinges: the elbow only bends.
+ */
+export function aimJoint(rig: Rig, id: JointId, at: Vector3, current: Sliders): Sliders | null {
+  const j = joint(id), d = rig.driven.get(SWING[id].part);
+  if (!d) return null;
+  const bone = d.bone, saved = bone.quaternion.clone();
+  rig.model.updateMatrixWorld(true);
+  const pivot = bone.getWorldPosition(new Vector3());
+  const len = boneEnd(rig, id, tEnd).distanceTo(pivot);
+  const dir = at.clone().sub(pivot);
+  if (dir.lengthSq() < 1e-8 || len < 1e-6) return null;
+  const goal = pivot.addScaledVector(dir.normalize(), len);
+  const axes = j.axes.filter((a) => AIMED(a.name));
+  const v: Sliders = { ...current };
+  const delta: Delta = {};
+  const cost = () => {
+    for (const a of j.axes) delta[a.k] = (v[a.k] ?? 0) * a.sign;
+    deltaToLocal(d.rest, delta, 'shipped', bone.quaternion);
+    bone.updateMatrixWorld(true);
+    return boneEnd(rig, id, tEnd).distanceToSquared(goal);
+  };
+  let best = cost();
+  for (const step of [32, 16, 8, 4, 2, 1, 0.5]) {
+    for (let pass = 0, improved = true; improved && pass < 6; pass++) {
+      improved = false;
+      for (const a of axes) {
+        const was = v[a.k] ?? 0;
+        for (const s of [step, -step]) {
+          v[a.k] = Math.min(a.max, Math.max(a.min, was + s));
+          const c = cost();
+          if (c < best - 1e-10) { best = c; improved = true; break; }
+          v[a.k] = was;
+        }
+      }
+    }
+  }
+  bone.quaternion.copy(saved);
+  bone.updateMatrixWorld(true);
+  const out: Sliders = {};
+  for (const a of axes) out[a.k] = Math.round(v[a.k] ?? 0);
+  return out;
+}
+
 /* ---------- the world ---------- */
 
 export type HandleMap = Map<string, HTMLElement>;
@@ -271,6 +351,8 @@ class StageView {
   constructor() { this.camera = new PerspectiveCamera(30, 16 / 9, 0.05, 60); this.camera.filmGauge = 36; this.camera.setFocalLength(config.focal); }
   publish(shared: Shared, rig: Rig) {
     shared.camera = this.camera;
+    shared.aim = (id, at, current) => aimJoint(rig, id, at, current);
+    shared.ends = (id) => jointEnds(rig, id);
     const m = rig.meshes[0];
     shared.stats = m ? { vertices: m.smooth.attributes.position.count, joints: rig.boneIndex.size, influences: m.smooth.attributes.skinWeight.itemSize } : null;
     this.st.paintKey = ''; this.st.measureKey = ''; this.st.display = '';
@@ -518,9 +600,12 @@ function dragPoint(camera: PerspectiveCamera, rect: DOMRect, x: number, y: numbe
   return t > 0 ? ray.ray.origin.clone().addScaledVector(ray.ray.direction, t) : null;
 }
 
-export function RigStage(props: RigStageProps & { markMagnet: Vec3 | null; sinkCm: number; handles: HandleMap }) {
+interface DragProps { onFk: (id: JointId, v: Sliders) => void; onHipDrop: (m: number) => void; maxDrop: number }
+
+export function RigStage(props: RigStageProps & DragProps & { markMagnet: Vec3 | null; sinkCm: number; handles: HandleMap }) {
   const { handles } = props;
   const layer = useRef<HTMLDivElement>(null);
+  const grab = useRef<{ id: JointId; x: number; y: number; moved: boolean; drop: number; y0: number; end0: Vector3; at0: Vector3 | null } | null>(null);
   const reg = (key: string) => (el: HTMLElement | null) => { if (el) handles.set(key, el); else handles.delete(key); };
   const { target, onTarget, shared, markMagnet } = props;
 
@@ -549,12 +634,55 @@ export function RigStage(props: RigStageProps & { markMagnet: Vec3 | null; sinkC
     onTarget([v.x, v.y, v.z]);
   };
 
+  /** What dragging a joint does: FK joints swing toward the pointer; with IK legs the hips drop; IK-driven joints only select. */
+  const dragKind = (id: JointId): 'swing' | 'drop' | null => {
+    if (props.mode !== 'pose') return null;
+    const limb = joint(id).limb;
+    if (limb === 'arm' && props.arm === 'ik') return null;
+    if (limb === 'legs' && props.legs === 'ik') return id === 'hips' ? 'drop' : null;
+    return 'swing';
+  };
+  const worldAt = (clientX: number, clientY: number, through: Vector3) => {
+    const cam = shared.camera, rect = layer.current?.getBoundingClientRect();
+    return cam && rect ? dragPoint(cam, rect, clientX, clientY, through) : null;
+  };
+  const jointDown = (id: JointId) => (e: React.PointerEvent<HTMLButtonElement>) => {
+    props.onSelect(id);
+    const kind = dragKind(id), ends = shared.ends?.(id);
+    if (!kind || !ends) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    const p0 = worldAt(e.clientX, e.clientY, ends.pivot);
+    // Relative drag: the bone's end moves by as much as the pointer does, so grabbing never jumps.
+    grab.current = { id, x: e.clientX, y: e.clientY, moved: false, drop: props.hipDrop, y0: p0?.y ?? 0, end0: ends.end, at0: worldAt(e.clientX, e.clientY, ends.end) };
+  };
+  const jointMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const g = grab.current;
+    if (!g || !e.currentTarget.hasPointerCapture(e.pointerId)) return;
+    if (!g.moved && Math.hypot(e.clientX - g.x, e.clientY - g.y) < 4) return;
+    g.moved = true;
+    const kind = dragKind(g.id), ends = shared.ends?.(g.id);
+    if (!kind || !ends) return;
+    if (kind === 'drop') {
+      const p = worldAt(e.clientX, e.clientY, ends.pivot);
+      if (p) props.onHipDrop(Math.round(Math.min(props.maxDrop, Math.max(0, g.drop + g.y0 - p.y)) * 200) / 200);
+      return;
+    }
+    const at = worldAt(e.clientX, e.clientY, g.end0);
+    const v = at && g.at0 && shared.aim?.(g.id, at.sub(g.at0).add(g.end0), props.fk[g.id]);
+    if (v) props.onFk(g.id, v);
+  };
+  const jointUp = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
+    grab.current = null;
+  };
+
   return <div className="rg-stage" data-testid="rig-stage" data-display={props.display} data-character={props.character} data-view={props.view} data-mode={props.mode} data-correction={props.correction} data-weights={props.weights} data-arm={props.arm} data-legs={props.legs}>
     <Boundary><Canvas shadows={{ type: PCFShadowMap }} dpr={[1, 1.75]} gl={{ antialias: true }} onCreated={({ gl }) => { gl.shadowMap.autoUpdate = false; }} fallback={<div className="rg-fallback">WebGL is required for the 3D stage.</div>}>
       <Suspense fallback={<Html center><span className="rg-loading">Loading the rig…</span></Html>}><World {...props} /></Suspense>
     </Canvas></Boundary>
     <div className="rg-layer" ref={layer}>
-      {JOINTS.map((j) => <button key={j.id} ref={reg(`joint:${j.id}`)} type="button" className="rg-joint" data-limb={j.limb ?? 'body'} aria-pressed={props.selected === j.id} aria-label={`Select ${j.label.toLowerCase()}`} title={j.label} data-testid={`joint-${j.id}`} onClick={() => props.onSelect(j.id)}><i /></button>)}
+      {JOINTS.map((j) => <button key={j.id} ref={reg(`joint:${j.id}`)} type="button" className="rg-joint" data-limb={j.limb ?? 'body'} aria-pressed={props.selected === j.id} aria-label={`${j.label}: drag to rotate, or click to pick`} title={dragKind(j.id) ? `${j.label} · drag to rotate` : j.label} data-drag={dragKind(j.id) ?? 'none'} data-testid={`joint-${j.id}`}
+        onClick={() => props.onSelect(j.id)} onPointerDown={jointDown(j.id)} onPointerMove={jointMove} onPointerUp={jointUp} onPointerCancel={jointUp}><i /></button>)}
       <span ref={reg('mark')} className="rg-mark" data-testid="mark" aria-hidden><i>mark</i></span>
       <span ref={reg('sink:0')} className="rg-sink" aria-hidden><i>−{props.sinkCm} cm</i></span>
       <button ref={reg('target')} type="button" className="rg-target" aria-label="IK hand target: drag, or use arrow keys (Shift for fine, Page Up/Down for depth)" data-testid="ik-target"

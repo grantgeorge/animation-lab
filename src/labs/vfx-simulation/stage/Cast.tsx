@@ -6,7 +6,7 @@ import { PIP_BONES, PIP_URL } from "@/scene/characters/Characters";
 import { RiggedCharacter } from "@/scene/characters/RiggedCharacter";
 import type { FaceData } from "@/scene/characters/faceRig";
 import pipFace from "@/scene/characters/faces/pip.json";
-import { beatTimes, type Treatment } from "../engine/beat";
+import { SYNC_LAG, beatTimes, type Treatment } from "../engine/beat";
 import { PIP_MARK, pipClip, pipTiming } from "../engine/pipClip";
 import { LOOP_S } from "../engine/timing";
 import { actors } from "../runtime/live";
@@ -25,9 +25,9 @@ export function Cast() {
   const exp = useVX((s) => s.exp);
   const offset = useVX((s) => s.offset);
   const clips = useMemo(() => {
-    const clip = (tr: Treatment, off = 0) => pipClip(pipTiming(tr, beatTimes(tr, phys, timing[tr], off), phys.intensity));
+    const clip = (tr: Treatment, off = SYNC_LAG) => pipClip(pipTiming(tr, beatTimes(tr, phys, timing[tr], off), phys.intensity));
     // in the sync experiment Pip 0 plays the offset take and Pip 1 the in-sync one (both cartoon)
-    return exp === "sync" ? [clip("cartoon", offset), clip("cartoon", 0), clip("drawn")] : [clip("real"), clip("cartoon"), clip("drawn")];
+    return exp === "sync" ? [clip("cartoon", offset), clip("cartoon"), clip("drawn")] : [clip("real"), clip("cartoon"), clip("drawn")];
   }, [phys, timing, exp, offset]);
   return (
     <>

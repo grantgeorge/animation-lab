@@ -34,6 +34,9 @@
 .rg-joint i { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #f4f7f9; background: #0d1114b0; box-shadow: 0 0 0 2px #0d111466; transition: transform .12s, background .12s; }
 .rg-lab .rg-joint:hover { background: transparent; }
 .rg-joint:hover i { transform: scale(1.25); }
+.rg-lab .rg-joint[data-drag=swing], .rg-lab .rg-joint[data-drag=drop] { cursor: grab; touch-action: none; }
+.rg-lab .rg-joint[data-drag=swing]:active, .rg-lab .rg-joint[data-drag=drop]:active { cursor: grabbing; }
+.rg-drag-hint { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); margin: 0; padding: 6px 11px; border-radius: 999px; background: #070b10c4; color: #c9d2d8; font-size: 11.5px; white-space: nowrap; pointer-events: none; }
 .rg-lab .rg-joint[aria-pressed=true] { background: transparent; }
 .rg-joint[aria-pressed=true] i { background: var(--accent); border-color: #fff4dc; transform: scale(1.2); }
 /* Over the shaded mesh, handles shrink to rings so they don't hide the deformation. */
@@ -178,3 +181,4 @@
   .rg-vocab td:first-child { width: 120px; }
 }
 @media (prefers-reduced-motion: reduce) { .rg-lab * { transition: none !important; } }
+@media (max-width: 760px) { .rg-drag-hint { white-space: normal; text-align: center; width: max-content; max-width: calc(100% - 24px); font-size: 10.5px; bottom: 8px; } }

@@ -231,3 +231,6 @@ button.vx-chip-label:hover { background:#000000e0; }
   .vx-inspector { overflow:visible; } .vx-inspect-row, .vx-watch-foot { grid-template-columns:1fr; }
   .vx-watch { min-height:calc(100dvh - 140px); flex:none; }
 }
+.vx-score { container-type:size; }
+@container (max-height:250px) { .vx-score p { display:none; } .vx-score ul { gap:6px; } .vx-score b { font-size:15px; } .vx-score-sub { display:none; } .vx-score { gap:8px; padding:12px 14px; } }
+.vx-chart-sync { max-height:110px; }

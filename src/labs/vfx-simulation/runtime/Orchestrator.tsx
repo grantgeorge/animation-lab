@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Color, MeshBasicMaterial, type Object3D, type PerspectiveCamera, type Scene, type WebGLRenderer } from "three";
 import { runUpdaters } from "@/renderer/runtime/frameBus";
-import { COUNT_RANGE, beatTimes, type Phys, type Timing, type Treatment } from "../engine/beat";
+import { COUNT_RANGE, SYNC_LAG, beatTimes, type Phys, type Timing, type Treatment } from "../engine/beat";
 import { FluidBake } from "../engine/fluid";
 import { measureTreatment } from "../engine/measure";
 import { FPS, frameOf, stepped } from "../engine/timing";
@@ -66,12 +66,12 @@ interface View {
 
 export function viewsFor(s: VXState): View[] {
   if (s.exp === "bucket") {
-    if (s.compare) return (["real", "cartoon", "drawn"] as Treatment[]).map((tr, i) => ({ slot: "ABC"[i], bucket: { tr, offset: 0, pip: i } }));
-    return [{ slot: "P", bucket: { tr: s.treatment, offset: 0, pip: ["real", "cartoon", "drawn"].indexOf(s.treatment) } }];
+    if (s.compare) return (["real", "cartoon", "drawn"] as Treatment[]).map((tr, i) => ({ slot: "ABC"[i], bucket: { tr, offset: SYNC_LAG, pip: i } }));
+    return [{ slot: "P", bucket: { tr: s.treatment, offset: SYNC_LAG, pip: ["real", "cartoon", "drawn"].indexOf(s.treatment) } }];
   }
   if (s.exp === "sync")
     return [
-      { slot: "A", bucket: { tr: "cartoon", offset: 0, pip: 1 } },
+      { slot: "A", bucket: { tr: "cartoon", offset: SYNC_LAG, pip: 1 } },
       { slot: "B", bucket: { tr: "cartoon", offset: s.offset, pip: 0 } },
     ];
   const id = s.exp as CategoryId;

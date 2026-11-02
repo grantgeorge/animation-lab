@@ -30,6 +30,30 @@ test('one canvas; display, view and character drive the stage', async ({ page })
   await expect(page.getByTestId('read-elbow')).toContainText('°', { timeout: 30_000 });
 });
 
+test('drag joints on the stage: FK swings the bone, IK legs squat from the hips', async ({ page }) => {
+  await page.getByRole('group', { name: 'Camera view' }).getByRole('button', { name: 'Front' }).click();
+  await expect(page.getByTestId('drag-hint')).toContainText('Drag any joint');
+  await expect(page.getByTestId('joint-elbow')).toHaveAttribute('data-drag', 'swing');
+  const before = await deg(page, 'read-elbow');
+  const e = await centre(page, 'joint-elbow');
+  await drag(page, e, { x: e.x + 60, y: e.y + 120 });
+  await expect(page.getByRole('combobox', { name: 'Joint' })).toHaveValue('elbow');
+  await expect.poll(() => deg(page, 'read-elbow')).toBeLessThan(before - 20);
+  const s0 = await deg(page, 'read-shoulder');
+  const sh = await centre(page, 'joint-shoulder');
+  await drag(page, sh, { x: sh.x - 40, y: sh.y + 140 });
+  await expect.poll(() => deg(page, 'read-shoulder')).toBeLessThan(s0 - 15);
+  // IK legs: the hips handle lowers the body and the solver keeps the feet planted.
+  await page.getByRole('button', { name: 'Reset pose' }).click();
+  await page.getByRole('group', { name: 'Legs' }).getByRole('button', { name: 'IK' }).click();
+  await expect(page.getByTestId('joint-hips')).toHaveAttribute('data-drag', 'drop');
+  await expect(page.getByTestId('joint-knees')).toHaveAttribute('data-drag', 'none');
+  const h = await centre(page, 'joint-hips');
+  await drag(page, h, { x: h.x, y: h.y + 80 });
+  await expect.poll(async () => Number((await page.getByRole('slider', { name: 'Lower the hips' }).inputValue()))).toBeGreaterThan(0.15);
+  await expect(page.getByTestId('read-feet')).toHaveText('Planted');
+});
+
 test('FK: pick a joint on the stage and its slider bends it', async ({ page }) => {
   await page.getByTestId('joint-shoulder').click();
   await expect(page.getByRole('combobox', { name: 'Joint' })).toHaveValue('shoulder');

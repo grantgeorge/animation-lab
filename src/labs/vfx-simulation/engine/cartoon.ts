@@ -143,13 +143,13 @@ export function cartoonPose(t: number, b: BeatTimes, p: Phys): CartoonPose {
   // 2. flight: the slab on its drawn arc, stretched by speed, two smaller blobs trailing
   if (t < b.impact) {
     out.phase = "flight";
-    const rs = [0.12, 0.08, 0.055];
-    const lags = [0, 0.13, 0.25];
+    const rs = [0.11, 0.075, 0.05];
+    const lags = [0, 0.2, 0.38];
     for (let i = 0; i < 3; i++) {
       const a = slabArc("cartoon", t - lags[i] * (b.impact - b.release), b, p);
       if (t - lags[i] * (b.impact - b.release) < b.release) continue;
       const wob = turb * 0.012 * wobble(t * 9, i, 0, 3);
-      out.blobs.push({ x: a.x + wob, y: a.y, z: IMPACT.z * a.u, r: rs[i] * sz, stretch: 1 + (0.35 + 0.75 * styl) * a.speed * sq, dx: a.dx, dy: a.dy, shine: i === 0 });
+      out.blobs.push({ x: a.x + wob, y: a.y, z: IMPACT.z * a.u, r: rs[i] * sz, stretch: 1 + (0.25 + 0.55 * styl) * a.speed * sq, dx: a.dx, dy: a.dy, shine: i === 0 });
       out.top = Math.max(out.top, a.y + rs[i] * sz);
     }
     return out;

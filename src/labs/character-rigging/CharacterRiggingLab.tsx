@@ -126,7 +126,9 @@ export default function CharacterRiggingLab() {
           <div className="rg-stage-wrap" ref={stageRef}>
             <RigStage character={character} display={display} view={view} mode={mode} correction={correction} weights={weights} fk={fk} hipDrop={hipDrop} arm={arm} legs={legs}
               target={target} pole={pole} selected={selected} showMark={showMark} playing={playing} waveU={waveU} handles={handles} onMeasure={setM} onSelect={(id) => { setSelected(id); if (tab === 'bind') setTab('pose'); }}
-              onTarget={setTarget} shared={shared} markMagnet={showMark && m ? m.mark : null} sinkCm={m ? Math.round(m.footSink * 100) : 0} />
+              onTarget={setTarget} shared={shared} markMagnet={showMark && m ? m.mark : null} sinkCm={m ? Math.round(m.footSink * 100) : 0}
+              onFk={(id, v) => setFk((f) => ({ ...f, [id]: { ...f[id], ...v } }))} onHipDrop={setHipDrop} maxDrop={legMax} />
+            {mode === 'pose' && <p className="rg-drag-hint" data-testid="drag-hint">{arm === 'ik' ? 'Drag the gold ring to place the hand · drag other joints to rotate them' : 'Drag any joint to rotate it'}{legs === 'ik' ? ' · drag the hips down to squat' : ''}</p>}
             <div className="rg-stage-label"><span>{NAME[character]}</span><small>{stageLabel}</small></div>
             <div className="rg-views" role="group" aria-label="Camera view">{VIEWS.map((v) => <button key={v.id} type="button" aria-pressed={view === v.id} onClick={() => setView(v.id)}>{v.label}</button>)}</div>
             {display === 'weights' && <div className="rg-legend" aria-hidden><span>0</span><i /><span>1</span><small>{sel.label} weight</small></div>}
@@ -158,12 +160,12 @@ export default function CharacterRiggingLab() {
                 <select aria-label="Joint" value={selected} onChange={(e) => setSelected(e.target.value as JointId)}>{JOINTS.map((j) => <option key={j.id} value={j.id}>{j.label}</option>)}</select>
               </div>
               {ikDriven
-                ? <p className="rg-driven">Driven by IK. The solver is writing this joint’s rotation. Switch the {sel.limb === 'arm' ? 'arm' : 'legs'} to FK to rotate it by hand. The pose carries over.</p>
+                ? <p className="rg-driven">Driven by IK. The solver is writing this joint’s rotation{selected === 'hips' ? ': drag the hips down on the stage and it bends the knees to keep the feet planted' : ''}. Switch the {sel.limb === 'arm' ? 'arm' : 'legs'} to FK to rotate it by hand. The pose carries over.</p>
                 : sel.axes.map((a) => <label key={a.k} className="rg-range">
                   <span className="rg-label">{a.name} <small>{a.hint}</small><output className="rg-mono">{deg(fk[selected][a.k] ?? 0)}</output></span>
                   <input type="range" aria-label={a.name} min={a.min} max={a.max} step={1} value={fk[selected][a.k] ?? 0} onChange={(e) => setAxis(selected, a.k, Number(e.target.value))} />
                 </label>)}
-              <p className="rg-hint">Click a joint on the stage to pick it.</p>
+              <p className="rg-hint">Drag a joint on the stage to rotate it, or click it to pick it here.</p>
             </div>
 
             {arm === 'ik' && <label className="rg-range rg-pole">
@@ -177,7 +179,7 @@ export default function CharacterRiggingLab() {
               <div><dt>IK reach</dt><dd data-testid="read-reach" data-out={arm === 'ik' && m ? !m.reached : undefined}>{arm === 'ik' && m ? (m.reached ? `${Math.round(m.reach * 100)}%` : 'Too far') : 'FK'}</dd></div>
               <div><dt>Feet</dt><dd data-testid="read-feet" data-bad={m ? m.footSink > TOL.sink : undefined}>{m ? (m.footSink > TOL.sink ? `−${cm(m.footSink)}` : 'Planted') : '–'}</dd></div>
             </dl>
-            <p className="rg-note">{arm === 'ik' ? (m && !m.reached ? 'The target is beyond the arm’s length, so the arm extends as far as it goes and points at it.' : 'Drag the gold hand target on the stage. IK just writes FK rotations for you: the shoulder and elbow above are the solver’s answer.') : 'FK: every joint is a rotation from its parent. To move the hand, rotate the shoulder, then the elbow.'}</p>
+            <p className="rg-note">{arm === 'ik' ? (m && !m.reached ? 'The target is beyond the arm’s length, so the arm extends as far as it goes and points at it.' : 'Drag the gold hand target on the stage. IK just writes FK rotations for you: the shoulder and elbow above are the solver’s answer.') : 'FK: every joint is a rotation from its parent. To move the hand, drag the shoulder, then the elbow: the hand goes wherever the chain puts it.'}</p>
           </div>}
 
           {tab === 'skin' && <div className="rg-panel" role="tabpanel" aria-label="Skinning">

@@ -179,7 +179,7 @@ export function bucketFrame(pose: BucketPose): BucketFrame {
 }
 
 /** The bucket camera (fixed). Looks down −Z at the kick. */
-export const CAM = { pos: [-0.02, 0.98, 3.55] as const, target: [-0.06, 0.4, 0] as const, fovDeg: 31 };
+export const CAM = { pos: [-0.1, 0.92, 3.45] as const, target: [-0.13, 0.43, 0] as const, fovDeg: 27 };
 /** The hand-drawn treatment's paper: a vertical card at z = CARD.z, in world metres. */
 export const CARD = { z: 0.24, x0: -0.95, x1: 1.45, y0: -0.02, y1: 1.18 } as const;
 /** Floor decal for the hand-drawn puddle (x, z extents). */

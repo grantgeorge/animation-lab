@@ -20,7 +20,7 @@ page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
 const shots = [
   ["01-compare-crown", "mode=experiment&exp=bucket&compare=1&tr=cartoon&t=1.55"],
   ["02-cartoon-hold", "mode=experiment&exp=bucket&compare=0&tr=cartoon&t=1.6"],
-  ["03-realistic-spray", "mode=experiment&exp=bucket&compare=0&tr=real&t=1.36"],
+  ["03-realistic-spray", "mode=experiment&exp=bucket&compare=0&tr=real&t=1.3"],
   ["04-drawn-key", "mode=experiment&exp=bucket&compare=0&tr=drawn&t=1.6"],
   ["05-drawn-impact-frame", "mode=experiment&exp=bucket&compare=0&tr=drawn&t=1.333"],
   ["06-cartoon-anticipation", "mode=experiment&exp=bucket&compare=0&tr=cartoon&t=1.0"],

@@ -19,7 +19,7 @@ export function fireParticles(t: number, budget: number, wind: number, out: Floa
   const { flame, smoke } = fireCounts(budget);
   let o = 0;
   for (let i = 0; i < flame; i++) {
-    const L = lifeOf(i, 0.6, 0.45);
+    const L = lifeOf(i, 0.5, 0.35);
     const shifted = t + hash01(i, 5) * L;
     const cyc = Math.floor(shifted / L);
     const age = shifted - cyc * L;
@@ -33,9 +33,9 @@ export function fireParticles(t: number, budget: number, wind: number, out: Floa
     const lean = wind * (0.55 * age * age + 0.12 * age);
     const tw = 0.06 * u * wobble(age * 7 + i, seed * 0.1, 0, 1);
     out[o++] = x0 * pull + lean + tw;
-    out[o++] = 0.04 + 0.35 * age + 1.0 * age * age * (1 - 0.35 * wind);
+    out[o++] = 0.03 + 0.24 * age + 0.6 * age * age * (1 - 0.35 * wind);
     out[o++] = z0 * pull + 0.04 * u * wobble(age * 6, i, 1, 2);
-    out[o++] = 0.13 * (1 - u) ** 0.55 * (0.7 + 0.6 * hash01(seed, 13));
+    out[o++] = 0.16 * (1 - u) ** 0.55 * (0.7 + 0.6 * hash01(seed, 13));
     out[o++] = 1 - u;
     out[o++] = Math.min(1, u * 8) * (1 - u) ** 0.4;
     out[o++] = 0;
@@ -48,7 +48,7 @@ export function fireParticles(t: number, budget: number, wind: number, out: Floa
     const u = age / L;
     const seed = j * 31 + (cyc % Math.round(LOOP_S / L));
     out[o++] = hashS(seed, 19) * 0.08 + wind * (0.5 * age + 0.18 * age * age) + 0.08 * wobble(age * 2, j, 0, 4) * u;
-    out[o++] = 0.5 + 0.32 * age + 0.06 * age * age;
+    out[o++] = 0.45 + 0.26 * age + 0.05 * age * age;
     out[o++] = hashS(seed, 23) * 0.08;
     out[o++] = 0.1 + 0.42 * u;
     out[o++] = 0;
@@ -128,7 +128,7 @@ export function smokePuffs(t: number, wind: number) {
   for (let k = 0; k < 3; k++) {
     const u = (((t / 2 + k / 3) % 1) + 1) % 1;
     const stepped = Math.floor(u * 24) / 24;
-    out.push({ x: 0.05 * Math.sin(stepped * 6 + k) + wind * stepped * 0.8, y: 0.85 + stepped * 0.9, r: 0.07 + 0.12 * stepped, alpha: stepped > 0.85 ? 0 : 1 });
+    out.push({ x: 0.05 * Math.sin(stepped * 6 + k) + wind * stepped * 0.8, y: 0.74 + stepped * 0.55, r: 0.05 + 0.07 * stepped, alpha: stepped > 0.85 ? 0 : 1 });
   }
   return out;
 }

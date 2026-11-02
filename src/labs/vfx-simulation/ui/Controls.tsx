@@ -104,20 +104,20 @@ export function SyncControls() {
   return (
     <section className="vx-section" data-testid="sync-controls">
       <span className="vx-eyebrow">PIP&apos;S FLINCH AGAINST THE SPLASH</span>
-      <Slider label="Offset" value={offset} min={LIMITS.offset[0]} max={LIMITS.offset[1]} step={1} fmt={(v) => `${v > 0 ? "+" : ""}${v} f`} onChange={set} testId="offset" />
+      <Slider label="Flinch after the water lands" value={offset} min={LIMITS.offset[0]} max={LIMITS.offset[1]} step={1} fmt={(v) => `${v > 0 ? "+" : ""}${v} f`} onChange={set} testId="offset" />
       <div className="vx-chips">
         {[
-          [-6, "Early −6"],
-          [0, "In sync"],
-          [5, "Late +5"],
-          [10, "Disconnected +10"],
+          [-4, "Early −4"],
+          [2, "In sync +2"],
+          [6, "Late +6"],
+          [12, "Disconnected +12"],
         ].map(([v, l]) => (
           <button key={v} type="button" aria-pressed={offset === v} data-testid={`offset-${v}`} onClick={() => set(v as number)}>
             {l}
           </button>
         ))}
       </div>
-      <p className="vx-note">0 means Pip flinches 2 frames after the water lands (the in-sync take on the left). Negative is before.</p>
+      <p className="vx-note">Frames between the water hitting the deck and Pip&apos;s flinch. The take on the left flinches +2 f. Negative means he flinches before the water lands.</p>
     </section>
   );
 }

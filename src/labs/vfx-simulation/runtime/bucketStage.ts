@@ -199,7 +199,7 @@ export class BucketStage {
     this.waterDisc = this.bucketInner.getObjectByName("water") as Mesh;
     // realistic
     this.dropMax = opts.maxDroplets;
-    const dropMat = new MeshStandardMaterial({ color: "#8cc6ea", roughness: 0.05, metalness: 0.05, envMap: this.env, envMapIntensity: 1.7, emissive: "#0d2d44", emissiveIntensity: 0.25 });
+    const dropMat = new MeshStandardMaterial({ color: "#3f88c0", roughness: 0.22, metalness: 0.05, envMap: this.env, envMapIntensity: 0.9, emissive: "#082a44", emissiveIntensity: 0.45 });
     this.drops = new InstancedMesh(new IcosahedronGeometry(1, opts.low ? 0 : 1), dropMat, this.dropMax);
     this.drops.instanceMatrix.setUsage(DynamicDrawUsage);
     this.drops.frustumCulled = false;
@@ -214,11 +214,11 @@ export class BucketStage {
     this.puddleTex.magFilter = LinearFilter;
     this.puddleTex.minFilter = LinearFilter;
     this.puddleTex.needsUpdate = true;
-    this.puddle = new Mesh(new PlaneGeometry(PUDDLE.x1 - PUDDLE.x0, PUDDLE.z1 - PUDDLE.z0), new MeshStandardMaterial({ color: "#4f8fbb", roughness: 0.03, metalness: 0.25, envMap: this.env, envMapIntensity: 1.3, transparent: true, alphaMap: this.puddleTex, depthWrite: false }));
+    this.puddle = new Mesh(new PlaneGeometry(PUDDLE.x1 - PUDDLE.x0, PUDDLE.z1 - PUDDLE.z0), new MeshStandardMaterial({ color: "#2f6f9f", roughness: 0.04, metalness: 0.1, envMap: this.env, envMapIntensity: 0.75, transparent: true, opacity: 0.88, alphaMap: this.puddleTex, depthWrite: false }));
     this.puddle.rotation.x = -Math.PI / 2;
     this.puddle.position.set((PUDDLE.x0 + PUDDLE.x1) / 2, 0.003, (PUDDLE.z0 + PUDDLE.z1) / 2);
     this.puddle.renderOrder = 1;
-    this.vectors = new LineSegments(new BufferGeometry(), new LineBasicMaterial({ color: "#ffd166", transparent: true, opacity: 0.9, depthTest: false }));
+    this.vectors = new LineSegments(new BufferGeometry(), new LineBasicMaterial({ color: "#ffd166", transparent: true, opacity: 0.75, depthTest: false }));
     this.vectors.geometry.setAttribute("position", new BufferAttribute(new Float32Array(Math.ceil(this.dropMax / 3) * 6), 3).setUsage(DynamicDrawUsage));
     this.vectors.frustumCulled = false;
     this.vectors.renderOrder = 10;
@@ -424,7 +424,8 @@ export class BucketStage {
     out.sampleT = shown;
     out.phase = simT < v.beat.release ? "in the bucket" : simT < bake.sim.firstContact ? "sheet in the air" : simT < bake.sim.firstContact + 0.45 ? "splash & spray" : "puddle spreads";
     this.ensureSolverGrid(bake.sim.h, bake.key);
-    const r = bake.sim.radius * 1.2;
+    // drawn a little larger than the solver radius so neighbours merge into one glossy mass
+    const r = bake.sim.radius * 1.55;
     let k = 0;
     const vec = this.vectors.geometry.getAttribute("position") as BufferAttribute;
     let nv = 0;
@@ -456,8 +457,9 @@ export class BucketStage {
           }
       }
       // droplets resting in the puddle shrink into the sheet; moving ones streak along their velocity
-      const rest = ground && sp < 0.35 ? 0.3 : 1;
-      const streak = Math.min(3.2, 1 + (sp * 0.75) / 60 / r);
+      const rest = ground ? (sp < 0.35 ? 0.22 : 0.6) : 1;
+      // only fast spray streaks; the bulk stays round so neighbours read as one surface
+      const streak = sp > 1.6 ? Math.min(1.7, 1 + ((sp - 1.6) * 0.3) / 60 / r) : 1;
       tmpV.set(vx, vy, vz);
       if (sp > 1e-4) tmpQ.setFromUnitVectors(UP, tmpV.multiplyScalar(1 / sp));
       else tmpQ.identity();
@@ -465,7 +467,7 @@ export class BucketStage {
       tmpP.set(x, y, z);
       tmpM.compose(tmpP, tmpQ, tmpS);
       this.drops.setMatrixAt(k++, tmpM);
-      if (v.inspect && v.vectors && !ground && i % 3 === 0 && nv < vec.count / 2) {
+      if (v.inspect && v.vectors && !ground && i % 7 === 0 && nv < vec.count / 2) {
         vec.setXYZ(nv * 2, x, y, z);
         vec.setXYZ(nv * 2 + 1, x + vx * 0.05, y + vy * 0.05, z + vz * 0.05);
         nv++;

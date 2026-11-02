@@ -216,7 +216,7 @@ function Picture({ big = false }: { big?: boolean }) {
       <div className="vx-picture" data-testid="picture" data-layout="2">
         <div className="vx-views vx-views-2">
           <ViewFrame slot="A" label="In sync · flinch +2 f" color={TREATMENT_INFO.cartoon.color} />
-          <ViewFrame slot="B" label={`Your offset · ${offset > 0 ? "+" : ""}${offset} f`} color="#ff8fd0" />
+          <ViewFrame slot="B" label={`Your flinch · ${offset > 0 ? "+" : ""}${offset} f`} color="#ff8fd0" />
         </div>
       </div>
     );

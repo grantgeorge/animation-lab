@@ -256,7 +256,7 @@ export function PromptBox({ compact = false }: { compact?: boolean }) {
   const p = useMemo(() => ({ ...phys, count: capCount(phys.count, runtime.tier) }), [phys]);
   const items = useMemo((): { k: string; label: string; color: string; text: string }[] => {
     if (exp === "bucket") return TREATMENTS.map((t) => ({ k: t, label: TREATMENT_INFO[t].label, color: TREATMENT_INFO[t].color, text: treatmentPhrase(t, p, timing[t]) }));
-    if (exp === "sync") return [{ k: "sync", label: `Cartoon, offset ${offset > 0 ? "+" : ""}${offset} f`, color: TREATMENT_INFO.cartoon.color, text: syncPhrase(p, timing.cartoon, offset) }];
+    if (exp === "sync") return [{ k: "sync", label: `Cartoon, flinch ${offset > 0 ? "+" : ""}${offset} f`, color: TREATMENT_INFO.cartoon.color, text: syncPhrase(p, timing.cartoon, offset) }];
     const c = cats[exp as CategoryId];
     return [{ k: exp, label: `${c.look === "real" ? "Realistic" : "Stylized"} · ${c.motion === "sim" ? "simulated" : "keyframed"}`, color: "#eac18a", text: categoryPhrase(exp as CategoryId, c.look, c.motion) }];
   }, [exp, p, timing, offset, cats]);
@@ -377,9 +377,9 @@ export function SyncChart() {
   const phys = useVX((s) => s.phys);
   const timing = useVX((s) => s.timing.cartoon);
   const offset = useVX((s) => s.offset);
-  const a = beatTimes("cartoon", phys, timing, 0);
+  const a = beatTimes("cartoon", phys, timing);
   const b = beatTimes("cartoon", phys, timing, offset);
-  const W = 640;
+  const W = 1000;
   const x = (t: number) => 20 + ((t - 0.6) / 1.6) * (W - 40);
   const head = useRef<SVGLineElement>(null);
   useEffect(
@@ -401,7 +401,7 @@ export function SyncChart() {
       <figcaption>
         <span className="vx-eyebrow">THE BEAT, FRAME BY FRAME</span>
       </figcaption>
-      <svg viewBox={`0 0 ${W} 96`} className="vx-chart" role="img" aria-label="Splash and flinch timing">
+      <svg viewBox={`0 0 ${W} 96`} className="vx-chart vx-chart-sync" role="img" aria-label="Splash and flinch timing">
         {ticks.map((f) => (
           <line key={f} x1={x(f / FPS)} x2={x(f / FPS)} y1={f % 6 === 0 ? 74 : 78} y2={82} className="vx-grid" />
         ))}

@@ -41,6 +41,7 @@ import {
   type WebGLRenderer,
 } from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { BackSide } from "three";
 import type { CategoryId } from "../engine/prompt";
 import type { CatState } from "../store";
 import { FPS, FRAMES, frameOf, stepped } from "../engine/timing";
@@ -212,6 +213,24 @@ function canvas(w: number, h: number, paint: (g: CanvasRenderingContext2D) => vo
   return t;
 }
 
+/** An outdoor environment for reflections: a sky gradient over a darker ground, prefiltered. */
+function skyEnvironment(gl: WebGLRenderer): Texture {
+  const sc = new Scene();
+  const mat = new ShaderMaterial({
+    side: BackSide,
+    depthWrite: false,
+    vertexShader: "varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }",
+    fragmentShader:
+      "varying vec3 vP; void main(){ float h = vP.y; vec3 sky = mix(vec3(0.82,0.9,0.98), vec3(0.32,0.55,0.86), smoothstep(0.0, 0.7, h)); vec3 gnd = vec3(0.22,0.3,0.16); vec3 c = h > 0.0 ? sky : mix(vec3(0.6,0.68,0.62), gnd, smoothstep(0.0,-0.25,h)); gl_FragColor = vec4(c, 1.0); }",
+  });
+  sc.add(new Mesh(new SphereGeometry(10, 32, 16), mat));
+  const pm = new PMREMGenerator(gl);
+  const tex = pm.fromScene(sc, 0.02).texture;
+  pm.dispose();
+  mat.dispose();
+  return tex;
+}
+
 /* ---------- 1. Fire & smoke ---------- */
 
 class FireDemo implements Demo {
@@ -232,7 +251,7 @@ class FireDemo implements Demo {
   private n = 0;
   private ramp = toonRamp([110, 190, 255]);
   constructor(low: boolean) {
-    const b = baseScene("#141a2e", [0, 0.95, 3.3], [0, 0.62, 0]);
+    const b = baseScene("#141a2e", [0, 0.78, 2.7], [0, 0.48, 0]);
     this.scene = b.scene;
     this.camera = b.camera;
     this.scene.add(new HemisphereLight("#46507a", "#1b120c", 0.6), ground("#2a2019"));
@@ -283,10 +302,12 @@ class FireDemo implements Demo {
       this.keyed.add(m);
     }
     for (let i = 0; i < 3; i++) {
-      const p = new Mesh(new CircleGeometry(1, 24), new MeshToonMaterial({ color: "#c9c8d2", gradientMap: this.ramp, transparent: true }));
-      const o = new Mesh(new CircleGeometry(1.08, 24), new MeshBasicMaterial({ color: INK, transparent: true }));
+      const p = new Mesh(new CircleGeometry(1, 24), new MeshBasicMaterial({ color: "#8f8d9c", transparent: true }));
+      const hi = new Mesh(new CircleGeometry(0.62, 20), new MeshBasicMaterial({ color: "#b9b7c6", transparent: true }));
+      hi.position.set(-0.22, 0.2, 0.001);
+      const o = new Mesh(new CircleGeometry(1.1, 24), new MeshBasicMaterial({ color: INK, transparent: true }));
       o.position.z = -0.002;
-      p.add(o);
+      p.add(o, hi);
       this.puffs.push(p);
       this.keyed.add(p);
     }
@@ -352,8 +373,9 @@ class FireDemo implements Demo {
         m.position.set(p.x, p.y - 0.04, -0.05);
         m.scale.setScalar(p.r);
         m.visible = p.alpha > 0;
-        (m.material as MeshToonMaterial).opacity = realLook ? 0.35 : 1;
+        (m.material as MeshBasicMaterial).opacity = realLook ? 0.35 : 1;
         (m.children[0] as Mesh).visible = !realLook;
+        (m.children[1] as Mesh).visible = !realLook;
       });
       this.n = 3 + dw_count(this.lickMeshes);
     }
@@ -389,10 +411,10 @@ class WaterDemo implements Demo {
   private ramp = toonRamp([120, 200, 255]);
   private n = 0;
   constructor(gl: WebGLRenderer | null) {
-    const b = baseScene("#bfd9e6", [0, 1.45, 3.1], [0, 0.1, 0.1]);
+    const b = baseScene("#bfd9e6", [0, 1.15, 2.9], [0, 0.0, 0.25]);
     this.scene = b.scene;
     this.camera = b.camera;
-    this.env = gl ? new PMREMGenerator(gl).fromScene(new RoomEnvironment(), 0.04).texture : null;
+    this.env = gl ? skyEnvironment(gl) : null;
     this.scene.add(new HemisphereLight("#f3f8ff", "#4f6b3a", 1.2));
     const sun = new DirectionalLight("#fff3dc", 2.2);
     sun.position.set(-2, 4, 1);
@@ -412,7 +434,7 @@ class WaterDemo implements Demo {
     this.geo = new PlaneGeometry(POND.size, POND.size, POND.n - 1, POND.n - 1);
     this.geo.rotateX(-Math.PI / 2);
     this.geo.setAttribute("color", new BufferAttribute(new Float32Array(POND.n * POND.n * 3).fill(1), 3));
-    this.matReal = new MeshStandardMaterial({ color: "#2f6f8f", roughness: 0.06, metalness: 0.35, envMap: this.env, envMapIntensity: 1.4 });
+    this.matReal = new MeshStandardMaterial({ color: "#174a66", roughness: 0.06, metalness: 0.1, envMap: this.env, envMapIntensity: 1.0 });
     this.matToon = new MeshToonMaterial({ color: "#ffffff", vertexColors: true, gradientMap: this.ramp });
     this.surface = new Mesh(this.geo, this.matReal);
     this.scene.add(this.surface);
@@ -426,8 +448,8 @@ class WaterDemo implements Demo {
       m.instanceMatrix.setUsage(DynamicDrawUsage);
     }
     this.scene.add(this.drops, this.dropLines);
-    for (let i = 0; i < 9; i++) {
-      const r = new Mesh(new RingGeometry(0.95, 1, 72).rotateX(-Math.PI / 2), new MeshBasicMaterial({ color: "#ffffff", transparent: true, depthWrite: false }));
+    for (let i = 0; i < 18; i++) {
+      const r = new Mesh(new RingGeometry(0.94, 1, 72).rotateX(-Math.PI / 2), new MeshBasicMaterial({ color: "#ffffff", transparent: true, depthWrite: false }));
       r.position.y = 0.01;
       this.rings.push(r);
       this.scene.add(r);
@@ -451,8 +473,9 @@ class WaterDemo implements Demo {
     const pos = this.geo.getAttribute("position") as BufferAttribute;
     const col = this.geo.getAttribute("color") as BufferAttribute;
     const n = POND.n;
-    const base = new Color("#3fb0e6");
-    const crest = new Color("#ffffff");
+    const inner = new Color("#5cc6f2");
+    const outer = new Color("#2d8fcc");
+    const tmpC = new Color();
     const heights = sim ? this.bake(size).heightAt(f) : null;
     for (let j = 0; j < n; j++)
       for (let i = 0; i < n; i++) {
@@ -460,10 +483,12 @@ class WaterDemo implements Demo {
         const x = pos.getX(id);
         const z = pos.getZ(id);
         const h = heights ? heights[j * n + i] : keyedHeight(x, z, tt, size);
-        pos.setY(id, h * (real ? 1 : 0.6));
+        // realistic: exaggerate the tiny ripples a little so the lighting can find them
+        pos.setY(id, h * (real ? 2.5 : 0.5));
         if (!real) {
-          const c = Math.abs(h) > 0.008 ? crest : base;
-          col.setXYZ(id, c.r, c.g, c.b);
+          // toon pond: a soft centre-to-bank gradient; the white rings carry the motion
+          tmpC.copy(inner).lerp(outer, Math.min(1, Math.hypot(x, z) / (POND.size * 0.5)) ** 1.5);
+          col.setXYZ(id, tmpC.r, tmpC.g, tmpC.b);
         }
       }
     pos.needsUpdate = true;
@@ -513,11 +538,22 @@ class WaterDemo implements Demo {
     // stylized look: white ink rings (keyed timing, or traced from the sim's main ring)
     let ri = 0;
     if (!real) {
-      const rings = sim ? [{ r: Math.max(0, tt - pebbleImpact) * 0.55 + 0.05, a: tt > pebbleImpact ? Math.max(0, 1 - (tt - pebbleImpact) / 3) : 0 }] : keyedRings(tt, size);
+      // simulated motion, stylized look: rings traced from the solver (the wave speed, plus every drop that lands)
+      const simRings = () => {
+        const out = [{ r: Math.max(0, tt - pebbleImpact) * 0.55 + 0.05, a: tt > pebbleImpact ? Math.max(0, 1 - (tt - pebbleImpact) / 3) : 0, x: 0, z: 0 }];
+        for (const d of simDrops(size)) {
+          if (tt < d.land) continue;
+          const a = d.land - pebbleImpact;
+          out.push({ r: (tt - d.land) * 0.55 + 0.03, a: Math.max(0, 1 - (tt - d.land) / 1.6), x: d.vx * a, z: d.vz * a });
+        }
+        return out;
+      };
+      const rings = sim ? simRings() : keyedRings(tt, size).map((r) => ({ ...r, x: 0, z: 0 }));
       for (const r of rings) {
         if (ri >= this.rings.length || r.a <= 0) continue;
         const m = this.rings[ri++];
         m.visible = true;
+        m.position.set(r.x, 0.012, r.z);
         m.scale.set(r.r, 1, r.r);
         (m.material as MeshBasicMaterial).opacity = Math.min(1, r.a * 1.4);
       }
@@ -531,10 +567,7 @@ class WaterDemo implements Demo {
           (m.material as MeshBasicMaterial).opacity = 1 - d.ring;
         }
     }
-    for (let i = 0; i < this.rings.length; i++) {
-      if (i >= ri) this.rings[i].visible = false;
-      else if (i < (sim ? 1 : keyedRings(tt, size).length)) this.rings[i].position.set(0, 0.01, 0);
-    }
+    for (let i = ri; i < this.rings.length; i++) this.rings[i].visible = false;
     this.n = k;
   }
   stats() {
@@ -600,17 +633,17 @@ class RigidDemo implements Demo {
   private ramp = toonRamp();
   private moving = 0;
   constructor() {
-    const b = baseScene("#2b2f36", [0.45, 1.0, 4.5], [0.55, 0.42, 0]);
+    const b = baseScene("#4a515c", [0.55, 1.0, 4.3], [0.62, 0.45, 0]);
     this.scene = b.scene;
     this.camera = b.camera;
-    this.scene.add(new HemisphereLight("#dfe6ff", "#3a3430", 1.0));
-    const key = new DirectionalLight("#fff0dc", 2.4);
+    this.scene.add(new HemisphereLight("#eef2ff", "#5a4e44", 1.6));
+    const key = new DirectionalLight("#fff0dc", 2.6);
     key.position.set(-2, 4, 3);
     key.castShadow = true;
     key.shadow.mapSize.set(1024, 1024);
     Object.assign(key.shadow.camera, { left: -3, right: 4, top: 3, bottom: -1 });
-    this.scene.add(key, ground("#5a5650"));
-    const wall = new Mesh(new PlaneGeometry(14, 5), new MeshStandardMaterial({ color: "#3d4048", roughness: 1 }));
+    this.scene.add(key, ground("#9a8f82"));
+    const wall = new Mesh(new PlaneGeometry(14, 5), new MeshStandardMaterial({ color: "#6b717c", roughness: 1 }));
     wall.position.set(0, 2.5, -1.6);
     this.scene.add(wall);
     this.realMat = new MeshStandardMaterial({ map: crateTexture(false), roughness: 0.8 });
@@ -634,10 +667,16 @@ class RigidDemo implements Demo {
     this.ballToon.add(new Mesh(this.ballToon.geometry, outlineMaterial(INK, 0.012)));
     this.scene.add(this.ball, this.ballToon);
     for (let i = 0; i < 6; i++) {
-      const p = new Mesh(new CircleGeometry(1, 20), new MeshToonMaterial({ color: "#e9e1d2", gradientMap: this.ramp, transparent: true }));
-      const o = new Mesh(new CircleGeometry(1.1, 20), new MeshBasicMaterial({ color: INK, transparent: true }));
-      o.position.z = -0.003;
-      p.add(o);
+      // a dust puff: three overlapping round lobes with one ink line around them
+      const p = new Mesh(new BufferGeometry(), new MeshBasicMaterial({ transparent: true, opacity: 0 }));
+      const lobes = [[-0.55, 0, 0.7], [0, 0.25, 0.85], [0.55, 0, 0.7]] as const;
+      for (const [x, y, r] of lobes) {
+        const ink = new Mesh(new CircleGeometry(r * 1.12, 20), new MeshBasicMaterial({ color: INK, transparent: true }));
+        ink.position.set(x, y, -0.004);
+        const fill = new Mesh(new CircleGeometry(r, 20), new MeshBasicMaterial({ color: "#efe6d6", transparent: true }));
+        fill.position.set(x, y, 0);
+        p.add(ink, fill);
+      }
       this.puffs.push(p);
       this.scene.add(p);
     }
@@ -680,13 +719,12 @@ class RigidDemo implements Demo {
       if (real || sim) return;
       const c = fr.crates[i];
       const land = keyedLandTime(i, s.value);
-      const u = (tt - land) / 0.45;
+      const u = (tt - land) / 0.32;
       if (u < 0 || u > 1) return;
       p.visible = true;
-      p.position.set(c.x + (i % 2 ? 0.2 : -0.2) * (0.5 + u), 0.06 + 0.1 * u, 0.25);
-      p.scale.setScalar(0.05 + 0.09 * u);
-      (p.material as MeshToonMaterial).opacity = 1 - u * u;
-      ((p.children[0] as Mesh).material as MeshBasicMaterial).opacity = 1 - u * u;
+      p.position.set(c.x + (i % 2 ? 0.2 : -0.2) * (0.6 + u), 0.05 + 0.06 * u, 0.25);
+      p.scale.setScalar(0.05 + 0.07 * u);
+      for (const ch of p.children) ((ch as Mesh).material as MeshBasicMaterial).opacity = 1 - u * u * u;
       void lay;
     });
   }
@@ -892,7 +930,7 @@ class MagicDemo implements Demo {
         this.sparks.pos[i * 3] = p.x;
         this.sparks.pos[i * 3 + 1] = p.y;
         this.sparks.pos[i * 3 + 2] = p.z;
-        this.sparks.size[i] = p.size * (sim ? 2.2 : 1.6);
+        this.sparks.size[i] = p.size * (sim ? 2.8 : 2);
         this.sparks.alpha[i] = p.glow;
       });
       this.sparks.commit(P.length);
@@ -970,7 +1008,7 @@ class ImpactDemo implements Demo {
   private ramp = toonRamp();
   private phase = "";
   constructor() {
-    const b = baseScene("#cfd7de", [0.1, 0.8, 4.0], [0.05, 0.55, 0]);
+    const b = baseScene("#cfd7de", [-0.05, 0.7, 3.25], [0.0, 0.52, 0]);
     this.scene = b.scene;
     this.camera = b.camera;
     this.scene.add(new HemisphereLight("#ffffff", "#7a6a5a", 1.2));

@@ -73,7 +73,7 @@ export const DEFAULTS = {
   exp: "bucket" as ExpId,
   treatment: "cartoon" as Treatment,
   compare: true,
-  offset: 8,
+  offset: -4,
   charSteps: true,
   vectors: true,
   raster: false,
