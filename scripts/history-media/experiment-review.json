@@ -1,0 +1,77 @@
+{
+  "reviewStatus": "Draft notes: written by Claude on 2026-11-01 from frames sampled once per second, full-resolution spot checks and pixel-difference measurements, against the brief and the approved references. Awaiting approval by a human editor. Timestamps are approximate (±0.5 s).",
+  "heroTake": "exp-refs-2",
+  "takes": {
+    "exp-text-1": [
+      { "criterion": "identity", "label": "Partly matches", "at": 0, "note": "Bram is a portlier redesign in a long double-breasted red coat with his hands in his pockets; Pip wears a yellow hood rather than a sou'wester." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Long cream scarf throughout." },
+      { "criterion": "beats", "label": "Partly matches", "at": 4, "note": "Pip peeks (~2 s), steps out (~3 s), waves (~5 s) and heads back in (~5.9 s). Bram raises a hand near his face (~4 s) rather than a clear wave back." },
+      { "criterion": "composition", "label": "Changed", "at": 0, "note": "An invented set: a stone-arched green door with the lamp above it, the lantern right of the door." },
+      { "criterion": "unrequested", "label": "Changed", "at": 0, "note": "A town of houses and a tall clock tower appear behind the wall." },
+      { "criterion": "performance", "label": "Partly matches", "at": 5, "note": "Pip's peek and wave are lively; Bram's reaction is small." }
+    ],
+    "exp-text-2": [
+      { "criterion": "identity", "label": "Partly matches", "at": 4, "note": "Same redesigned Bram and hooded Pip as A1." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 4, "note": "Pip peeks (~2 s) and steps out, Bram waves back with his hand raised (~4 s), Pip waves (~4–5 s) and hops back inside (~5.9 s)." },
+      { "criterion": "composition", "label": "Changed", "at": 0, "note": "The same invented arched door and street as A1." },
+      { "criterion": "unrequested", "label": "Changed", "at": 0, "note": "Town and clock tower added." },
+      { "criterion": "performance", "label": "Matches", "at": 4, "note": "Clear, warm exchange of waves." }
+    ],
+    "exp-text-3": [
+      { "criterion": "identity", "label": "Partly matches", "at": 4.1, "note": "Bram is close to the brief but heavier; Pip has a hood and auburn hair." },
+      { "criterion": "scarf", "label": "Matches", "at": 4.1, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 4.1, "note": "Pip peeks (~2 s) and steps out (~3 s); Bram turns and waves back, facing camera (~4 s); Pip waves (~5 s) and goes back in (~5.9 s)." },
+      { "criterion": "composition", "label": "Changed", "at": 0, "note": "Invented set with a lit, curtained window right of the door." },
+      { "criterion": "unrequested", "label": "Changed", "at": 0, "note": "Town, window and clock tower added." },
+      { "criterion": "performance", "label": "Matches", "at": 4.1, "note": "The most appealing text-only take: Bram's wave and Pip's delight read clearly." }
+    ],
+    "exp-text-4": [
+      { "criterion": "identity", "label": "Partly matches", "at": 4, "note": "The same drifts as the other text-only takes." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Partly matches", "at": 3, "note": "Bram gestures off to the left (~3 s) before turning to wave back (~4–5 s); Pip peeks, waves and goes back in." },
+      { "criterion": "composition", "label": "Changed", "at": 0, "note": "Invented set, consistent with A1–A3." },
+      { "criterion": "unrequested", "label": "Changed", "at": 3, "note": "Town and clock tower added; an unprompted gesture away from Pip." },
+      { "criterion": "performance", "label": "Partly matches", "at": 4, "note": "Readable, but the extra gesture muddies the reaction." }
+    ],
+    "exp-refs-1": [
+      { "criterion": "identity", "label": "Matches", "at": 3, "note": "Bram and Pip match Image 2 and Image 3, including relative height." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 4, "note": "Follows the animatic: Pip hidden at 0 s, peeks (~1 s), steps out (~2 s), Bram turns (~4 s) and waves back with his back to camera (~5 s), Pip back at the door by ~5.9 s." },
+      { "criterion": "composition", "label": "Matches", "at": 0, "note": "The camera, wall, doorway, lantern and clock tower match the key frame." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No new objects or cuts observed." },
+      { "criterion": "performance", "label": "Partly matches", "at": 5, "note": "Staging follows the animatic, so Bram's face is hidden while he waves." }
+    ],
+    "exp-refs-2": [
+      { "criterion": "identity", "label": "Matches", "at": 5, "note": "Both characters match the references throughout." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 5, "note": "Same staging and timing as the animatic; Pip smiles from the doorway as Bram waves back (~5 s)." },
+      { "criterion": "composition", "label": "Matches", "at": 0, "note": "Matches the key frame; the door starts closed with Pip hidden, as in the animatic." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No new objects or cuts observed." },
+      { "criterion": "performance", "label": "Partly matches", "at": 5, "note": "Clear staging; Bram's reaction is played with his back to camera." }
+    ],
+    "exp-refs-3": [
+      { "criterion": "identity", "label": "Matches", "at": 0, "note": "Matches the references." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 4, "note": "Nearly identical to B1 and B2." },
+      { "criterion": "composition", "label": "Matches", "at": 0, "note": "Matches the key frame." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No new objects or cuts observed." },
+      { "criterion": "performance", "label": "Partly matches", "at": 4, "note": "Very little variation between reference takes: consistency at the cost of choice." }
+    ],
+    "exp-refs-4": [
+      { "criterion": "identity", "label": "Matches", "at": 0, "note": "Matches the references." },
+      { "criterion": "scarf", "label": "Matches", "at": 0, "note": "Cream scarf." },
+      { "criterion": "beats", "label": "Matches", "at": 4, "note": "Follows the animatic." },
+      { "criterion": "composition", "label": "Matches", "at": 0, "note": "Matches the key frame." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No new objects or cuts observed." },
+      { "criterion": "performance", "label": "Partly matches", "at": 5, "note": "Same staging limits as the other reference takes." }
+    ]
+  },
+  "revision": [
+    { "criterion": "scarf", "label": "Matches", "at": 0, "note": "The scarf is blue in every sampled frame, 0–5.9 s." },
+    { "criterion": "identity", "label": "Matches", "at": 4, "note": "Bram and Pip keep their designs." },
+    { "criterion": "composition", "label": "Matches", "at": 0, "note": "Camera, set and lighting match the source take." },
+    { "criterion": "performance", "label": "Changed", "at": 4.5, "note": "The wave runs late: at 4.5 s the source Bram is mid-wave while the revised Bram's arm is still down; it comes up by ~5 s. Frame differences peak at 3.5–4 s." },
+    { "criterion": "unrequested", "label": "Partly matches", "at": 4, "note": "Every frame was re-synthesized, so paint texture and reflections differ throughout, even where nothing was meant to change." }
+  ]
+}

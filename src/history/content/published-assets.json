@@ -1,0 +1,1085 @@
+{
+ "generatedAt": "2026-11-01T22:40:14.757Z",
+ "assets": [
+  {
+   "id": "still-drawings",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-drawings.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Pencil-test treatment of the lab scene: Bram and Pip by the doorway, graphite on paper",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-drawings"
+  },
+  {
+   "id": "clip-drawings",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-drawings.mp4",
+   "posterUrl": "/history/posters/clip-drawings.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Pencil-test treatment of the lab scene: Bram and Pip by the doorway, graphite on paper, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-drawings"
+  },
+  {
+   "id": "still-multiplane",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-multiplane.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Painted-cel treatment: inked, flat-painted characters over a watercolor street painting",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-multiplane"
+  },
+  {
+   "id": "clip-multiplane",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-multiplane.mp4",
+   "posterUrl": "/history/posters/clip-multiplane.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Painted-cel treatment: inked, flat-painted characters over a watercolor street painting, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-multiplane"
+  },
+  {
+   "id": "still-television",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-television.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Limited-animation TV treatment: flat colors and bold outlines",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-television"
+  },
+  {
+   "id": "clip-television",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-television.mp4",
+   "posterUrl": "/history/posters/clip-television.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Limited-animation TV treatment: flat colors and bold outlines, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-television"
+  },
+  {
+   "id": "still-digital-2d",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-digital-2d.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Digital ink-and-paint treatment: clean colored lines and crisp fills",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-digital-2d"
+  },
+  {
+   "id": "clip-digital-2d",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-digital-2d.mp4",
+   "posterUrl": "/history/posters/clip-digital-2d.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Digital ink-and-paint treatment: clean colored lines and crisp fills, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-digital-2d"
+  },
+  {
+   "id": "still-cg",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-cg.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Early-CG treatment: plastic materials and hard shadows",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-cg"
+  },
+  {
+   "id": "clip-cg",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-cg.mp4",
+   "posterUrl": "/history/posters/clip-cg.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Early-CG treatment: plastic materials and hard shadows, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-cg"
+  },
+  {
+   "id": "still-simulation",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-simulation.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Contemporary CG treatment: soft bounced light and a knitted scarf",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-simulation"
+  },
+  {
+   "id": "clip-simulation",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-simulation.mp4",
+   "posterUrl": "/history/posters/clip-simulation.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Contemporary CG treatment: soft bounced light and a knitted scarf, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-simulation"
+  },
+  {
+   "id": "still-stylization",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/still-stylization.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "Illustrated comic-style CG treatment: ink lines and halftone shading",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-stylization"
+  },
+  {
+   "id": "clip-stylization",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/clips/clip-stylization.mp4",
+   "posterUrl": "/history/posters/clip-stylization.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Illustrated comic-style CG treatment: ink lines and halftone shading, animated: Bram notices Pip, turns and waves back while Pip waves",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-stylization"
+  },
+  {
+   "id": "note-multiplane-blue-scarf",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/note-multiplane-blue-scarf.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "The painted-cel still with Bram's scarf repainted blue",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-note-multiplane-blue-scarf"
+  },
+  {
+   "id": "note-television-blue-scarf",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/note-television-blue-scarf.webp",
+   "width": 1920,
+   "height": 1072,
+   "alt": "The TV still with Bram's scarf repainted blue",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-note-television-blue-scarf"
+  },
+  {
+   "id": "ref-lab-master",
+   "kind": "image",
+   "origin": "authored-demo",
+   "url": "/history/refs/ref-lab-master.webp",
+   "width": 1920,
+   "height": 1080,
+   "alt": "Frame zero rendered from the Lens & Framing lab",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved"
+  },
+  {
+   "id": "ref-paint-bram",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/refs/ref-paint-bram.webp",
+   "width": 395,
+   "height": 720,
+   "alt": "Painted-cel reference: Bram",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-multiplane"
+  },
+  {
+   "id": "ref-paint-pip",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/refs/ref-paint-pip.webp",
+   "width": 480,
+   "height": 800,
+   "alt": "Painted-cel reference: Pip",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-clip-multiplane"
+  },
+  {
+   "id": "ref-lab-animatic",
+   "kind": "video",
+   "origin": "authored-demo",
+   "url": "/history/refs/lab-animatic.mp4",
+   "posterUrl": "/history/posters/ref-lab-animatic.webp",
+   "width": 1280,
+   "height": 720,
+   "durationSeconds": 6,
+   "frameRate": 24,
+   "alt": "Six-second 3D animatic rendered from the Lens & Framing lab",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved"
+  },
+  {
+   "id": "exp-text-1",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-text-1.mp4",
+   "posterUrl": "/history/posters/exp-text-1.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take A1",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-text-1"
+  },
+  {
+   "id": "exp-text-2",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-text-2.mp4",
+   "posterUrl": "/history/posters/exp-text-2.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take A2",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-text-2"
+  },
+  {
+   "id": "exp-text-3",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-text-3.mp4",
+   "posterUrl": "/history/posters/exp-text-3.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take A3",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-text-3"
+  },
+  {
+   "id": "exp-text-4",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-text-4.mp4",
+   "posterUrl": "/history/posters/exp-text-4.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take A4",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-text-4"
+  },
+  {
+   "id": "exp-refs-1",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-1.mp4",
+   "posterUrl": "/history/posters/exp-refs-1.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B1",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-1"
+  },
+  {
+   "id": "exp-refs-2",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-2.mp4",
+   "posterUrl": "/history/posters/exp-refs-2.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B2",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-2"
+  },
+  {
+   "id": "exp-refs-3",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-3.mp4",
+   "posterUrl": "/history/posters/exp-refs-3.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B3",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-3"
+  },
+  {
+   "id": "exp-refs-4",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-4.mp4",
+   "posterUrl": "/history/posters/exp-refs-4.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B4",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-4"
+  },
+  {
+   "id": "exp-hero",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-2.mp4",
+   "posterUrl": "/history/posters/exp-refs-2.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B2",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-2"
+  },
+  {
+   "id": "exp-revision-source",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-refs-2.mp4",
+   "posterUrl": "/history/posters/exp-refs-2.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "Experiment take B2",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-refs-2"
+  },
+  {
+   "id": "exp-revision-keyframe",
+   "kind": "image",
+   "origin": "ai-recreation",
+   "url": "/history/stills/exp-revision-keyframe.webp",
+   "width": 1344,
+   "height": 768,
+   "alt": "The source take's first frame with the scarf recolored blue",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-revision"
+  },
+  {
+   "id": "exp-revision",
+   "kind": "video",
+   "origin": "ai-recreation",
+   "url": "/history/experiment/exp-revision.mp4",
+   "posterUrl": "/history/posters/exp-revision.webp",
+   "width": 1280,
+   "height": 732,
+   "durationSeconds": 6.583,
+   "frameRate": 24,
+   "alt": "The reference take regenerated with a blue scarf",
+   "sceneVersion": "lab-hd-cast-wave-v3@2026-11-01",
+   "approval": "approved",
+   "provenanceId": "prov-exp-revision"
+  }
+ ],
+ "provenance": [
+  {
+   "id": "prov-clip-drawings",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 2 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Redraw this shot as a 1930s hand-drawn animation pencil test on a single sheet of warm off-white animation paper.\nSoft graphite linework with confident, expressive contours over faint light-blue construction lines and loose circles.\nThe characters are fully drawn; the background is indicated with lighter, simpler layout lines.\nMonochrome only: graphite and faint blue pencil on paper. Keep the characters readable through silhouette and values:\nBram's coat is shaded darker with graphite, Pip's raincoat lighter, and Bram's knitted scarf is left as clean white paper with a few knit lines.\nThree small round registration peg holes along the bottom edge of the paper. No scratches, dirt, sepia or film grain.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take a; 2 takes: b colorized the pencil test)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A 1930s graphite pencil-test animation. The whole shot stays a monochrome pencil drawing on warm off-white paper from the first frame to the last: grey graphite lines and light blue construction lines only, never any color, paint or fill. The drawings change on every second frame; the paper and the background drawing stay still. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-multiplane",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Repaint this shot in the style of a lavish late-1930s painted-cel animated feature.\nThe characters are painted cels: carefully inked contour lines with flat opaque gouache-like color and one soft shadow tone.\nThe environment is a rich watercolor and gouache background painting with soft edges and atmospheric depth:\nthe iron lantern in the foreground painted darker and crisper, the wall and doorway in the middle distance,\nthe clock tower and the night sky softer, bluer and hazier in the far distance. Warm glowing lamplight.\nNo film grain, scratches or sepia.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take b of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: inked, flat-painted characters over a watercolor background painting. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-television",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Redesign this shot as a 1960s limited-animation television cartoon.\nBold uniform black outlines, flat unshaded color fills, simplified geometric character shapes and strong silhouettes.\nA stylized flat background built from simple graphic shapes and a limited palette with a few dry-brush texture marks.\nClean and graphic. No film grain, scratches or sepia.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take a of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A 1960s limited-animation TV cartoon: flat colors and bold outlines, mostly held poses with only the parts that need to move animating. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-digital-2d",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Repaint this shot as a lush early-1990s hand-drawn animated feature finished with digital ink and paint.\nCharacters: fine, clean, self-colored ink lines (dark red lines on the red coat, dark gold lines on the yellow raincoat), crisp flat digital colors with\na precise cel shadow tone and a small highlight tone on each form, expressive hand-drawn faces.\nBackground: a richly detailed painted background with visible brushwork on the brick and plaster, soft airbrushed gradients in the night sky,\na warm painted pool of lamplight on the wall, and a soft digital glow around the lamps. The look of clean hand-drawn characters composited over a painted set.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take a of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "An early-1990s hand-drawn animated feature with digital ink and paint. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-cg",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Re-render this shot as if it were a mid-1990s computer-animated feature made on 1995 hardware.\nSimplified low-polygon forms with slightly faceted edges on rounded shapes, smooth untextured plastic surfaces with bright hot specular highlights,\nhair and moustache as solid sculpted shapes, no fabric or knit texture (the scarf is a smooth cream tube with simple fringe), hard-edged dark shadows,\nflat ambient light with no bounce light, simple flat-colored walls. Everything looks like carefully modeled toys.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take a of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A mid-1990s early computer-animated feature with simple plastic-like materials and hard shadows. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-simulation",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Re-render this shot as a contemporary stylized computer-animated feature.\nSoft global illumination with warm lamplight bouncing off the plaster wall onto the characters' faces,\ngentle subsurface scattering on skin, a visible fabric weave on the coat, the cream knitted scarf with visible yarn texture and fringe,\nsoft contact shadows on the ground and a little atmospheric haze around the lamps. Appealing, polished character shapes.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take a of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A contemporary stylized computer-animated feature with soft bounced lamplight and a soft knitted scarf. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-clip-stylization",
+   "steps": [
+    {
+     "label": "1 · Era still (candidate 1 of 3)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Re-render this shot as a boldly illustrated computer-animated film inspired by printed comic books and painted storybooks.\nThick hand-drawn black ink contour lines and interior ink lines on both characters, bold halftone dot shading in every shadow,\nflat graphic color blocks, a strong teal rim light along the left edges against warm orange lamplight, visible painterly brush strokes in the background,\nand slightly offset printed-color edges like a comic page. Simplified, designed shapes.\n\nKeep exactly the same camera, framing, composition and character positions as the first image.\nThe characters are Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nPreserve their silhouettes, proportions, relative heights, costumes, poses and expressions.\nBram stands in the middle facing us; Pip stands just outside the arched doorway to the right of him.\nKeep the setting: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nDo not add characters, props, text, captions, logos, borders or watermarks.\n\nThe second image shows Bram up close and the third image shows Pip up close, for identity only.",
+     "inputs": [
+      "Frame-zero render of the Lens & Framing lab, HD cast (24 mm, t = 2.40 s) + close-up crops of Bram and Pip"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "num_images": 3,
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Draft clip from the approved still (take b of 2)",
+     "endpointId": "minimax/h3-max/image-to-video",
+     "model": "MiniMax H3 Max (image-to-video)",
+     "date": "2026-11-01",
+     "prompt": "An illustrated comic-book-style computer-animated film with ink lines, halftone shading and stepped, punchy poses. One continuous six-second shot with a completely fixed camera: no zoom, pan or cuts.\n0-1s: Bram, the tall lamplighter in the red coat, stands still by the glowing doorway; Pip, the small child in the yellow raincoat, has just stepped out beside the door.\n1-2s: Bram hears something and his eyes and head turn toward Pip.\n2-4s: Bram turns his body toward Pip and waves back, raising his right hand in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a small happy hop and both settle into warm, delighted expressions. Bram's scarf end sways slightly with his turn and settles; it stays wrapped around his neck.\nKeep the same art style, character designs, proportions and background throughout. Clear anticipation, readable silhouettes.\nNo new characters, no text, no dialogue, no music.",
+     "inputs": [
+      "Approved era still (start frame)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Still: converted to WebP",
+    "Clip: re-encoded to H.264 at 1280 px wide for delivery; no trim, retime, interpolation or audio"
+   ],
+   "note": "Draft tier: MiniMax H3 Max. A final pass may re-render the approved stills with Seedance 2.5."
+  },
+  {
+   "id": "prov-note-multiplane-blue-scarf",
+   "steps": [
+    {
+     "label": "Director's note applied to the approved still",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Change only the color of the tall man's cream scarf to a clear medium blue, painted in the same flat cel style. Keep everything else identical: his coat, face, pose, the child, the background, lighting and composition. Keep the camera, framing, scale and the position of everything that remains exactly as in the input image, pixel-aligned.",
+     "inputs": [
+      "Approved multiplane still"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "output_format": "png"
+     }
+    }
+   ],
+   "edits": [
+    "Converted to WebP"
+   ]
+  },
+  {
+   "id": "prov-note-television-blue-scarf",
+   "steps": [
+    {
+     "label": "Director's note applied to the approved still",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Change only the color of the tall man's cream scarf to a clear medium blue flat color. Keep everything else identical: outlines, his coat, face, pose, the child, the background and composition. Keep the camera, framing, scale and the position of everything that remains exactly as in the input image, pixel-aligned.",
+     "inputs": [
+      "Approved television still"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "output_format": "png"
+     }
+    }
+   ],
+   "edits": [
+    "Converted to WebP"
+   ]
+  },
+  {
+   "id": "prov-layers",
+   "steps": [
+    {
+     "label": "Background clean plate",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Remove the two characters (the tall man in the red coat and the small child in yellow) and the black iron street lantern in the right foreground. Repaint the plaster wall, the doorway and green door, the pavement, the brick wall and the night sky that were behind them in exactly the same painted watercolor-and-gouache style, so this becomes an empty background painting of the street. Keep the camera, framing, scale and the position of everything that remains exactly as in the input image, pixel-aligned.",
+     "inputs": [
+      "Approved painted still"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "Foreground lantern (transparent)",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Output only the black iron street lantern and its post from the right foreground, with the same painted style, size, shape and position in the frame, on a fully transparent background. Remove everything else, including the characters, wall, sky and ground. Keep the camera, framing, scale and the position of everything that remains exactly as in the input image, pixel-aligned.",
+     "inputs": [
+      "Approved painted still"
+     ],
+     "parameters": {
+      "image_size": "{width:1920,height:1072}",
+      "quality": "high",
+      "output_format": "png",
+      "background": "transparent"
+     }
+    },
+    {
+     "label": "Character matte",
+     "endpointId": "fal-ai/birefnet/v2",
+     "model": "BiRefNet v2 (background removal)",
+     "date": "2026-11-01",
+     "prompt": "(no prompt)",
+     "inputs": [
+      "Approved painted still"
+     ],
+     "parameters": {
+      "model": "General Use (Heavy)",
+      "operating_resolution": "2048x2048",
+      "output_mask": true,
+      "output_format": "png"
+     }
+    }
+   ],
+   "edits": [
+    "Character cel = approved still × BiRefNet matte (the Sunburst character layer was rejected: misregistered)",
+    "Blue cel = blue-scarf edit × the same matte"
+   ]
+  },
+  {
+   "id": "prov-exp-text-1",
+   "steps": [
+    {
+     "label": "Take A1",
+     "endpointId": "minimax/h3-max/text-to-video",
+     "model": "MiniMax H3 Max (text-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.",
+     "inputs": [
+      "Text brief only"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-text-2",
+   "steps": [
+    {
+     "label": "Take A2",
+     "endpointId": "minimax/h3-max/text-to-video",
+     "model": "MiniMax H3 Max (text-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.",
+     "inputs": [
+      "Text brief only"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-text-3",
+   "steps": [
+    {
+     "label": "Take A3",
+     "endpointId": "minimax/h3-max/text-to-video",
+     "model": "MiniMax H3 Max (text-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.",
+     "inputs": [
+      "Text brief only"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-text-4",
+   "steps": [
+    {
+     "label": "Take A4",
+     "endpointId": "minimax/h3-max/text-to-video",
+     "model": "MiniMax H3 Max (text-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.",
+     "inputs": [
+      "Text brief only"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled"
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-refs-1",
+   "steps": [
+    {
+     "label": "Take B1",
+     "endpointId": "minimax/h3-max/reference-to-video",
+     "model": "MiniMax H3 Max (reference-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.\n\nUse Image 1 for the art style, the set, the lighting and the camera composition. Image 2 shows Bram and Image 3 shows Pip: match their designs, proportions and colors exactly.\nFollow the staging and timing of the actions in Video 1, a simple 3D animatic of the same scene, but do not copy its 3D rendering style: keep the painted-cel look of Image 1.",
+     "inputs": [
+      "Painted key frame (@Image1)",
+      "Bram reference (@Image2)",
+      "Pip reference (@Image3)",
+      "Lab 3D animatic (@Video1)"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled",
+      "returned_seed": 1924849070
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-refs-2",
+   "steps": [
+    {
+     "label": "Take B2",
+     "endpointId": "minimax/h3-max/reference-to-video",
+     "model": "MiniMax H3 Max (reference-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.\n\nUse Image 1 for the art style, the set, the lighting and the camera composition. Image 2 shows Bram and Image 3 shows Pip: match their designs, proportions and colors exactly.\nFollow the staging and timing of the actions in Video 1, a simple 3D animatic of the same scene, but do not copy its 3D rendering style: keep the painted-cel look of Image 1.",
+     "inputs": [
+      "Painted key frame (@Image1)",
+      "Bram reference (@Image2)",
+      "Pip reference (@Image3)",
+      "Lab 3D animatic (@Video1)"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled",
+      "returned_seed": 964871634
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-refs-3",
+   "steps": [
+    {
+     "label": "Take B3",
+     "endpointId": "minimax/h3-max/reference-to-video",
+     "model": "MiniMax H3 Max (reference-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.\n\nUse Image 1 for the art style, the set, the lighting and the camera composition. Image 2 shows Bram and Image 3 shows Pip: match their designs, proportions and colors exactly.\nFollow the staging and timing of the actions in Video 1, a simple 3D animatic of the same scene, but do not copy its 3D rendering style: keep the painted-cel look of Image 1.",
+     "inputs": [
+      "Painted key frame (@Image1)",
+      "Bram reference (@Image2)",
+      "Pip reference (@Image3)",
+      "Lab 3D animatic (@Video1)"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled",
+      "returned_seed": 1500637896
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-refs-4",
+   "steps": [
+    {
+     "label": "Take B4",
+     "endpointId": "minimax/h3-max/reference-to-video",
+     "model": "MiniMax H3 Max (reference-to-video)",
+     "date": "2026-11-01",
+     "prompt": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.\n\nUse Image 1 for the art style, the set, the lighting and the camera composition. Image 2 shows Bram and Image 3 shows Pip: match their designs, proportions and colors exactly.\nFollow the staging and timing of the actions in Video 1, a simple 3D animatic of the same scene, but do not copy its 3D rendering style: keep the painted-cel look of Image 1.",
+     "inputs": [
+      "Painted key frame (@Image1)",
+      "Bram reference (@Image2)",
+      "Pip reference (@Image3)",
+      "Lab 3D animatic (@Video1)"
+     ],
+     "parameters": {
+      "aspect_ratio": "16:9",
+      "duration": 6,
+      "resolution": "768P",
+      "prompt_expansion_mode": "disabled",
+      "returned_seed": 170694789
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ]
+  },
+  {
+   "id": "prov-exp-revision",
+   "steps": [
+    {
+     "label": "1 · Edit the source take's first frame",
+     "endpointId": "openai/gpt-image-2.5/sunburst/edit",
+     "model": "GPT Image 2.5 Sunburst (edit)",
+     "date": "2026-11-01",
+     "prompt": "Change only the color of the tall man's cream scarf to a clear medium blue, in the same painted style. Keep everything else identical: his coat, face, pose, the child, the background, lighting and composition, pixel-aligned.",
+     "inputs": [
+      "First frame of take exp-refs-2"
+     ],
+     "parameters": {
+      "image_size": "auto",
+      "quality": "high",
+      "output_format": "png"
+     }
+    },
+    {
+     "label": "2 · Regenerate from the edited frame, following the source take",
+     "endpointId": "minimax/h3-max/reference-to-video",
+     "model": "MiniMax H3 Max (reference-to-video)",
+     "date": "2026-11-01",
+     "prompt": "Recreate Video 1 shot for shot: the same characters, the same performance and timing, the same fixed camera, background and lighting.\nThe only change: Bram's scarf is now blue, exactly as in the opening frame. Keep it blue in every frame.",
+     "inputs": [
+      "Edited first frame (start frame)",
+      "Take exp-refs-2 (Video 1, motion reference)"
+     ],
+     "parameters": {
+      "duration": 6,
+      "resolution": "768P",
+      "aspect_ratio": "16:9",
+      "prompt_expansion_mode": "disabled",
+      "returned_seed": 521507206
+     }
+    }
+   ],
+   "edits": [
+    "Re-encoded to H.264 for delivery; no trim or retime"
+   ],
+   "note": "MiniMax H3 Max has no video-edit mode, so this revision is a keyframe edit plus reference-guided regeneration, not an in-place edit."
+  }
+ ]
+}

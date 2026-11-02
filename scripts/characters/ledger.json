@@ -1,0 +1,189 @@
+{
+  "spentUsd": 10.84,
+  "runs": [
+    {
+      "at": "2026-11-01T19:20:39.167Z",
+      "label": "concept:bram",
+      "endpoint": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "estimateUsd": 0.6,
+      "seconds": 29,
+      "requestId": "01a1988e-134d-7060-8522-f884f7d6c5a1"
+    },
+    {
+      "at": "2026-11-01T19:21:18.834Z",
+      "label": "concept:pip",
+      "endpoint": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "estimateUsd": 0.6,
+      "seconds": 37,
+      "requestId": "01a1988e-8cd0-7693-90a2-8bbbf6c1500e"
+    },
+    {
+      "at": "2026-11-01T19:25:04.827Z",
+      "label": "meshy:bram",
+      "endpoint": "meshy/v7.1/image-to-3d",
+      "estimateUsd": 1.4,
+      "seconds": 186,
+      "requestId": "01a1988f-bcc7-7b43-830b-42b1f4adabe3"
+    },
+    {
+      "at": "2026-11-01T19:24:59.000Z",
+      "label": "meshy:pip",
+      "endpoint": "meshy/v7.1/image-to-3d",
+      "estimateUsd": 1.4,
+      "seconds": 180,
+      "requestId": "(lost to a parallel-write race; recorded manually)"
+    },
+    {
+      "at": "2026-11-01T21:20:33.763Z",
+      "label": "arm review doorway-bram.jpg+doorway-pip.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 15,
+      "requestId": "01a198fc-102a-7420-af7c-2c35d4bafc24"
+    },
+    {
+      "at": "2026-11-01T21:26:27.127Z",
+      "label": "meshy:bram-hd poly=80000 pbr=1",
+      "endpoint": "meshy/v7.1/image-to-3d",
+      "estimateUsd": 2,
+      "seconds": 193,
+      "requestId": "01a198fe-bd24-7d22-92d8-dbf434ff7c50"
+    },
+    {
+      "at": "2026-11-01T21:30:43.250Z",
+      "label": "meshy:pip-hd poly=80000 pbr=1",
+      "endpoint": "meshy/v7.1/image-to-3d",
+      "estimateUsd": 2,
+      "seconds": 236,
+      "requestId": "01a19902-0035-7691-8fb3-24b58a5e2931"
+    },
+    {
+      "at": "2026-11-01T21:45:04.833Z",
+      "label": "arm review doorway-bram-front.jpg+doorway-pip.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 17,
+      "requestId": "01a19912-7b08-7852-ab6e-9a84537005df"
+    },
+    {
+      "at": "2026-11-01T21:46:57.869Z",
+      "label": "arm review doorway-bram-front.jpg+doorway-pip.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 17,
+      "requestId": "01a19914-3587-70b0-819b-30155c0aff3a"
+    },
+    {
+      "at": "2026-11-01T21:48:52.000Z",
+      "label": "arm review doorway-bram.jpg+doorway-bram-front.jpg+doorway-pip.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 26,
+      "requestId": "01a19915-d200-70a0-aaae-04cdf56bc15e"
+    },
+    {
+      "at": "2026-11-01T21:50:06.685Z",
+      "label": "arm review doorway-bram.jpg+doorway-bram-front.jpg+doorway-pip.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 31,
+      "requestId": "01a19916-e237-73d2-ab47-633b8429041c"
+    },
+    {
+      "at": "2026-11-01T22:25:31.524Z",
+      "label": "review 01-flat.jpg+02-storybook.jpg+03-dramatic.jpg+04-noir.jpg+05-sunset.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 15,
+      "requestId": "01a19937-8c07-7763-b828-6d6ab3232c8c"
+    },
+    {
+      "at": "2026-11-01T22:28:19.689Z",
+      "label": "review 01-flat.jpg+02-storybook.jpg+03-dramatic.jpg+04-noir.jpg+05-sunset.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 20,
+      "requestId": "01a1993a-0919-7e72-bf22-812fbb111e5e"
+    },
+    {
+      "at": "2026-11-01T22:35:45.493Z",
+      "label": "meshy:pip-uhd poly=200000 pbr=1",
+      "endpoint": "meshy/v7.1/image-to-3d",
+      "estimateUsd": 2,
+      "seconds": 432,
+      "requestId": "01a1993a-8e9e-7171-af53-42fae5aae86f"
+    },
+    {
+      "at": "2026-11-02T05:22:43.309Z",
+      "label": "painterly matte x2",
+      "endpoint": "openai/gpt-image-2.5/sunburst/edit",
+      "estimateUsd": 0.089,
+      "seconds": 35,
+      "requestId": "01a19ab5-33e4-71c0-ae17-a5300b9f0731"
+    },
+    {
+      "at": "2026-11-02T05:30:25.660Z",
+      "label": "review 02-sensor-same-framing-265.jpg+05-aperture-band.jpg+07-shutter-rolling-alexa.jpg+10-response-highlight-doc.jpg+15-inspect.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 38,
+      "requestId": "01a19abc-3478-7080-b665-3770d72c1aab"
+    },
+    {
+      "at": "2026-11-02T05:32:21.981Z",
+      "label": "review 02-projection-wipe.jpg+02-sensor-same-framing-265.jpg+05-aperture-band.jpg+05-lens-24.jpg+06-lens-100.jpg+07-shutter-rolling-alexa.jpg+09b-move-25d-orbit.jpg+10-move-25d-inspect.jpg+10-response-highlight-doc.jpg+12-style-split.jpg+15-impossible-cheat.jpg+15-inspect.jpg+17-impossible-scale.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 65,
+      "requestId": "01a19abd-9111-7300-8124-374feb0ecc6b"
+    },
+    {
+      "at": "2026-11-02T05:37:31.795Z",
+      "label": "review 07-watch.jpg+02-simple-sliders-crop.jpg+04-halation-only.jpg+10-show-look.jpg+12-comic.jpg+13-painterly.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 37,
+      "requestId": "01a19ac2-b788-7791-a6d4-1c2ec1d5235e"
+    },
+    {
+      "at": "2026-11-02T05:48:03.735Z",
+      "label": "review 01-watch-painted.jpg+02-experiment-wipe.jpg+17-test-watch.jpg+14-inspect-projection.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 38,
+      "requestId": "01a19acc-59d5-72e3-bb95-aa9f15ebb493"
+    },
+    {
+      "at": "2026-11-02T05:57:54.400Z",
+      "label": "review r2-01-watch-painted.jpg+r2-02-experiment-wipe.jpg+r2-17-test-watch.jpg+r2-12-inspect-texture.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 32,
+      "requestId": "01a19ad5-7302-74c1-84b1-847084c1abce"
+    },
+    {
+      "at": "2026-11-02T06:32:33.380Z",
+      "label": "review 01-experiment-3d.jpg+02-watch-3d-track.jpg+03-flat.jpg+05-25d-arc-holes.jpg+06-3d-arc-reveal.jpg+08-inspect-bands.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 30,
+      "requestId": "01a19af5-36ea-7d01-ac11-286872b79f3a"
+    },
+    {
+      "at": "2026-11-02T06:33:39.397Z",
+      "label": "review 01-playground-suspense.jpg+04-compare-suspense-vs-action.jpg+05-inspect-comedy.jpg+07-kuleshov-gift.jpg+12-comedy-reaction-hold.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 40,
+      "requestId": "01a19af6-0e08-7e41-a17e-923d6bbd1d7b"
+    },
+    {
+      "at": "2026-11-02T06:42:24.122Z",
+      "label": "review v2-01-experiment-3d.jpg+v2-03-flat.jpg+v2-12-occlusion-isolated.jpg+v2-15-watch-25d-arc.jpg+v2-13-inspect-3d-arc-reveal.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 18,
+      "requestId": "01a19afe-665b-7720-bb4a-05bdbe8c57af"
+    }
+  ]
+}

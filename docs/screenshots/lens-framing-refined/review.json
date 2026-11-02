@@ -1,0 +1,658 @@
+{
+  "errors": [],
+  "warnings": [
+    "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  ],
+  "captures": [
+    {
+      "name": "01-desktop-default-50mm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "02-desktop-fixed-24mm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 24,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "03-desktop-fixed-85mm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 85,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "04-desktop-match-24mm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "match",
+      "focal": 24,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 754.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 849.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "05-desktop-match-85mm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "match",
+      "focal": 85,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 754.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 849.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "06-desktop-studio",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "match",
+      "focal": 85,
+      "primary": "stage",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 877,
+        "y": 367.625,
+        "width": 200,
+        "height": 112.5
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 754.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 849.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "07-desktop-workshop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "workshop",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "08-desktop-alley",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "alley",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 140,
+        "width": 1066,
+        "height": 353.125
+      },
+      "shot": {
+        "x": 244.890625,
+        "y": 141.0078125,
+        "width": 624.21875,
+        "height": 351.109375
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 565.125,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 694.8125,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "09-desktop-fullscreen",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "documentWidth": 1440,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": true,
+      "playing": false,
+      "picture": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 900
+      },
+      "shot": {
+        "x": 0,
+        "y": 45,
+        "width": 1440,
+        "height": 810
+      },
+      "controls": {
+        "x": 1113,
+        "y": 95,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 212,
+        "width": 1066,
+        "height": 105.6875
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 341.6875,
+        "width": 1066,
+        "height": 131.1875
+      },
+      "lesson": {
+        "x": 1113,
+        "y": 846.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "10-compact-default-50mm",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "documentWidth": 1280,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 24,
+        "y": 120,
+        "width": 906,
+        "height": 312.8125
+      },
+      "shot": {
+        "x": 200.7265625,
+        "y": 121.0078125,
+        "width": 552.546875,
+        "height": 310.796875
+      },
+      "controls": {
+        "x": 953,
+        "y": 75,
+        "width": 302,
+        "height": 751.28125
+      },
+      "study": {
+        "x": 24,
+        "y": 504.8125,
+        "width": 906,
+        "height": 94
+      },
+      "filmstrip": {
+        "x": 24,
+        "y": 619.8125,
+        "width": 906,
+        "height": 116.1875
+      },
+      "lesson": {
+        "x": 953,
+        "y": 826.28125,
+        "width": 302,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "11-mobile-top",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 12,
+        "y": 166.5,
+        "width": 366,
+        "height": 270
+      },
+      "shot": {
+        "x": 13,
+        "y": 199.125,
+        "width": 364,
+        "height": 204.75
+      },
+      "controls": {
+        "x": 13,
+        "y": 1161.359375,
+        "width": 364,
+        "height": 774.28125
+      },
+      "study": {
+        "x": 12,
+        "y": 523.5,
+        "width": 366,
+        "height": 259.515625
+      },
+      "filmstrip": {
+        "x": 12,
+        "y": 805.515625,
+        "width": 366,
+        "height": 209.25
+      },
+      "lesson": {
+        "x": 13,
+        "y": 1935.640625,
+        "width": 364,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "12-mobile-controls",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 12,
+        "y": -960.5,
+        "width": 366,
+        "height": 270
+      },
+      "shot": {
+        "x": 13,
+        "y": -927.875,
+        "width": 364,
+        "height": 204.75
+      },
+      "controls": {
+        "x": 13,
+        "y": 34.359375,
+        "width": 364,
+        "height": 774.28125
+      },
+      "study": {
+        "x": 12,
+        "y": -603.5,
+        "width": 366,
+        "height": 259.515625
+      },
+      "filmstrip": {
+        "x": 12,
+        "y": -321.484375,
+        "width": 366,
+        "height": 209.25
+      },
+      "lesson": {
+        "x": 13,
+        "y": 808.640625,
+        "width": 364,
+        "height": 49.5
+      }
+    },
+    {
+      "name": "13-mobile-exercise",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "scene": "doorway",
+      "mode": "fixed",
+      "focal": 50,
+      "primary": "shot",
+      "fullscreen": false,
+      "playing": false,
+      "picture": {
+        "x": 12,
+        "y": -1105.5,
+        "width": 366,
+        "height": 270
+      },
+      "shot": {
+        "x": 13,
+        "y": -1072.875,
+        "width": 364,
+        "height": 204.75
+      },
+      "controls": {
+        "x": 13,
+        "y": -110.640625,
+        "width": 364,
+        "height": 774.28125
+      },
+      "study": {
+        "x": 12,
+        "y": -748.5,
+        "width": 366,
+        "height": 259.515625
+      },
+      "filmstrip": {
+        "x": 12,
+        "y": -466.484375,
+        "width": 366,
+        "height": 209.25
+      },
+      "lesson": {
+        "x": 13,
+        "y": 663.640625,
+        "width": 364,
+        "height": 180.25
+      }
+    }
+  ]
+}

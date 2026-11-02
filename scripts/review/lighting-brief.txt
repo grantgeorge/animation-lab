@@ -1,0 +1,8 @@
+You are a lighting supervisor at a feature animation studio reviewing a lighting-education tool.
+Each image shows the same stylized 3D character (Bram, a lamplighter in a red coat and cream scarf) lit by one named preset; the preset name, its intended description and the measured key:fill ratio are in the UI on the left, and the generated lighting prompt is at the bottom. Judge ONLY the rendered character and backdrop in the centre against what the preset claims to be:
+1 Flat cartoon (high-key, shadowless, ~1.5:1, bright saturated kids' TV look)
+2 Storybook (soft warm 3/4 key, warm bounce fill, ~3:1, faint cool rim, cosy)
+3 Cinematic (hard side key splitting the face, ~8:1, strong cool rim, dark set)
+4 Noir (single hard high key through venetian blinds, no fill, deep blacks, near monochrome)
+5 Sunset (low orange sun behind the subject, orange rim on both shoulders, cool blue front fill, long shadow toward camera, orange-to-violet sky)
+For each image: does it read as the named look at a glance (yes/partly/no)? List the 2-4 most important lighting fixes in concrete terms (light direction in degrees, intensity ratio, softness, colour temperature, shadows on/off, ambient level, background value, saturation/exposure). Bullets only, terse. End each with a 1-10 score for "reads as the named look".

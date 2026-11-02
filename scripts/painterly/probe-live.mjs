@@ -1,0 +1,17 @@
+import { chromium } from "@playwright/test";
+const browser = await chromium.launch({ args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+const errors = [];
+page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); }); page.on("pageerror", (e) => errors.push("pageerror " + e.message + e.stack));
+await page.goto(`http://localhost:3123/labs/painterly-textures?e2e=1&quality=high&test=surface&mode=${process.argv[2] ?? "watch"}`, { waitUntil: "networkidle" });
+await page.waitForFunction(() => !!window.__painterlyLab, null, { timeout: 30000 });
+await page.waitForTimeout(3000);
+const f0 = await page.evaluate(() => window.__painterlyLab.getState().frames);
+await page.waitForTimeout(4000);
+const f1 = await page.evaluate(() => window.__painterlyLab.getState().frames);
+console.log("fps ~", ((f1 - f0) / 4).toFixed(1), f0, f1, await page.evaluate(() => { const s = window.__painterlyLab.getState(); return { playing: s.playing, t: s.t, section: s.section }; }));
+const h = await page.evaluate(() => window.__painterlyLab.crawlLive());
+console.log("live", h);
+await page.screenshot({ path: process.argv[3] ?? "/tmp/x.png" });
+console.log("errors", errors);
+await browser.close();

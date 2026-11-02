@@ -1,0 +1,26 @@
+import type { LabModuleId } from "./types";
+
+/** Literal import map so each lab is its own client chunk (the home page never loads three). */
+export const LAB_LOADERS = {
+  "lens-and-framing": () => import("./lens-and-framing/LensFramingLab"),
+  "camera-movement": () => import("./camera-movement/CameraMovementLab"),
+  "lighting-studio": () => import("./lighting-studio/LightingStudioLab"),
+  "timing-and-spacing": () => import("./timing-and-spacing/TimingSpacingLab"),
+  "character-acting": () => import("./character-acting/CharacterActingLab"),
+  "animation-style": () => import("./animation-style/AnimationStyleLab"),
+  "staging-and-blocking": () => import("./storytelling/BlockingLab"),
+  "storyboards-animatics": () => import("./storytelling/AnimaticsLab"),
+  "color-scripting": () => import("./storytelling/ColorLab"),
+  "facial-animation": () => import("./facial-animation/FacialAnimationLab"),
+  "shot-coverage": () => import("./shot-coverage/ShotCoverageLab"),
+  "camera-families": () => import("./camera-families/CameraFamiliesLab"),
+  "animation-camera": () => import("./animation-camera/AnimationCameraLab"),
+  "grading-finishing": () => import("./grading-finishing/GradingFinishingLab"),
+  "painterly-textures": () => import("./painterly-textures/PainterlyLab"),
+  "environment-depth": () => import("./environment-depth/EnvironmentDepthLab"),
+  "editing-rhythm": () => import("./editing-rhythm/EditingRhythmLab"),
+  "vfx-simulation": () => import("./vfx-simulation/VfxSimulationLab"),
+  "character-rigging": () => import("./character-rigging/CharacterRiggingLab"),
+  "character-design": () => import("./character-design/CharacterDesignLab"),
+  "2d-vs-3d": () => import("./2d-vs-3d/TwoDThreeDLab"),
+} satisfies Record<LabModuleId, () => Promise<{ default: React.ComponentType }>>;

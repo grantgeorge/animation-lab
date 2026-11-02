@@ -1,0 +1,145 @@
+{
+  "errors": [],
+  "captures": [
+    {
+      "name": "01-desktop-default",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollWidth": 1440,
+      "width": 1440,
+      "state": null
+    },
+    {
+      "name": "02-desktop-easing",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollWidth": 1440,
+      "width": 1440,
+      "state": "easing"
+    },
+    {
+      "name": "03-desktop-weight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollWidth": 1440,
+      "width": 1440,
+      "state": "weight"
+    },
+    {
+      "name": "04-desktop-anticipation",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollWidth": 1440,
+      "width": 1440,
+      "state": "anticipation"
+    },
+    {
+      "name": "05-desktop-squash",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollWidth": 1440,
+      "width": 1440,
+      "state": "squash"
+    },
+    {
+      "name": "06-compact-default",
+      "viewport": [
+        1280,
+        800
+      ],
+      "scrollWidth": 1280,
+      "width": 1280,
+      "state": null
+    },
+    {
+      "name": "07-compact-comparison",
+      "viewport": [
+        1280,
+        800
+      ],
+      "scrollWidth": 1280,
+      "width": 1280,
+      "state": "easing"
+    },
+    {
+      "name": "08-phone-top",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": null
+    },
+    {
+      "name": "09-phone-curves",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": null
+    },
+    {
+      "name": "10-phone-controls",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": null
+    },
+    {
+      "name": "11-phone-bounce-details",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": null
+    },
+    {
+      "name": "12-phone-comparison",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": "anticipation"
+    },
+    {
+      "name": "13-phone-lesson",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": "anticipation"
+    },
+    {
+      "name": "14-phone-comparison-controls",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollWidth": 390,
+      "width": 390,
+      "state": "anticipation"
+    }
+  ]
+}

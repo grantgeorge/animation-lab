@@ -1,0 +1,67 @@
+{
+  "reviewStatus": "Draft notes: written by Claude on 2026-11-01 from frames every 0.6 s, full-size spot checks, Scribe transcripts with word timings, and an envelope correlation against the cast voice take. I can't listen to audio, so voice quality and delivery still need a human ear. Awaiting editor approval.",
+  "takes": {
+    "act-prompt-a": [
+      { "criterion": "emotion", "label": "Partly matches", "at": 1.2, "note": "A long closed-eyed pause (0.6–2 s) reads as a weary sigh; the line comes with a warm smile, so the sarcasm is soft." },
+      { "criterion": "face", "label": "Partly matches", "at": 1.8, "note": "Heavy lids, but the eyes close instead of rolling, and the smile is symmetrical, not lopsided." },
+      { "criterion": "gesture", "label": "Matches", "at": 3.6, "note": "An open-palm “ta-da” lands with “great” (~3.4 s)." },
+      { "criterion": "voice", "label": "Changed", "at": 2.2, "note": "The model invented its own voice and timing; the line runs ~2.2–3.8 s." },
+      { "criterion": "unrequested", "label": "Changed", "note": "The transcript tags [gentle music], although the direction said no music." }
+    ],
+    "act-prompt-b": [
+      { "criterion": "emotion", "label": "Matches", "at": 3.6, "note": "Heavy-lidded deadpan, a flat smirk and hands on hips: reads as sarcastic." },
+      { "criterion": "face", "label": "Partly matches", "at": 2.4, "note": "Heavy lids and smirk; no clear eye-roll." },
+      { "criterion": "gesture", "label": "Partly matches", "at": 3.6, "note": "Hands on hips instead of the small flat hand on “great”." },
+      { "criterion": "voice", "label": "Changed", "at": 3.2, "note": "The model's own voice; the line arrives late (3.2–4.6 s) after about three silent seconds." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No extra sounds in the transcript." }
+    ],
+    "act-expression-a": [
+      { "criterion": "emotion", "label": "Partly matches", "at": 3.5, "note": "Opens on the supplied sarcastic face, then breaks into a broad grin on the line: reads amused or smug rather than sarcastic." },
+      { "criterion": "face", "label": "Partly matches", "at": 0, "note": "The opening expression matches the reference image, but it isn't kept." },
+      { "criterion": "gesture", "label": "Partly matches", "at": 4.2, "note": "A hand rises after “great” (~4.2 s)." },
+      { "criterion": "voice", "label": "Changed", "at": 3, "note": "The model's own voice; the line runs ~3.0–4.5 s." },
+      { "criterion": "unrequested", "label": "Changed", "note": "[gentle music] tagged in the soundtrack." }
+    ],
+    "act-expression-b": [
+      { "criterion": "emotion", "label": "Partly matches", "at": 3, "note": "Sarcastic opening face, a long blink (0.6–1.8 s), then a smug grin on the line." },
+      { "criterion": "face", "label": "Partly matches", "at": 0, "note": "Starts on the reference expression and drifts away from it." },
+      { "criterion": "gesture", "label": "Partly matches", "at": 4.2, "note": "The hand comes up after the line (~4.2 s)." },
+      { "criterion": "voice", "label": "Changed", "at": 3.1, "note": "The model's own voice; the line runs ~3.1–4.5 s." },
+      { "criterion": "unrequested", "label": "Changed", "note": "[gentle music] tagged in the soundtrack." }
+    ],
+    "act-voice-a": [
+      { "criterion": "voice", "label": "Matches", "at": 0.3, "note": "The soundtrack is the cast voice take exactly (envelope r = 1.00 at 0 s): the delivery and timing you chose." },
+      { "criterion": "lipsync", "label": "Matches", "at": 1.2, "note": "Mouth shapes follow the words from 0.3 to 2.5 s." },
+      { "criterion": "face", "label": "Partly matches", "at": 1.8, "note": "Heavy lids mid-line and a smile at the end; no clear eye-roll." },
+      { "criterion": "gesture", "label": "Changed", "at": 4.5, "note": "The flat hand arrives about 2 s after the line has ended (~4.2 s), so it's disconnected from “great”." },
+      { "criterion": "emotion", "label": "Partly matches", "at": 2, "note": "The voice carries the sarcasm more than the face does." }
+    ],
+    "act-voice-b": [
+      { "criterion": "voice", "label": "Matches", "at": 0.3, "note": "The cast voice take exactly (r = 1.00 at 0 s)." },
+      { "criterion": "lipsync", "label": "Matches", "at": 1, "note": "Lip sync follows the words." },
+      { "criterion": "face", "label": "Matches", "at": 1.5, "note": "A real eye-roll under heavy lids on “just” (~1.4 s), then a smirk on “great”." },
+      { "criterion": "gesture", "label": "Changed", "at": 4.2, "note": "The hand gesture comes after the line (~3.6–4.8 s), not on “great” (2.1 s)." },
+      { "criterion": "emotion", "label": "Matches", "at": 1.5, "note": "Reads as sarcastic: the strongest face of the eight." }
+    ],
+    "act-acting-a": [
+      { "criterion": "voice", "label": "Partly matches", "at": 2.1, "note": "A re-synthesized read similar to the cast take (envelope r = 0.67), slower: the line runs 2.1–4.9 s." },
+      { "criterion": "face", "label": "Partly matches", "at": 3, "note": "Smirk on the line; the eye-roll is hard to see." },
+      { "criterion": "gesture", "label": "Matches", "at": 4.4, "note": "Open palm toward Pip on “great” (~4.4 s), as in the acting reference." },
+      { "criterion": "emotion", "label": "Partly matches", "at": 4.4, "note": "Sarcastic, but drawn out." },
+      { "criterion": "unrequested", "label": "Matches", "note": "No extra words or sounds; the 3D look was kept despite the 2D reference." }
+    ],
+    "act-acting-b": [
+      { "criterion": "voice", "label": "Partly matches", "at": 2.3, "note": "Re-synthesized and similar to the cast take (r = 0.68); the line runs 2.3–4.8 s." },
+      { "criterion": "face", "label": "Matches", "at": 1.8, "note": "Raised brows, side-eye under heavy lids (~1.8 s) and a smirk on the line." },
+      { "criterion": "gesture", "label": "Matches", "at": 4.5, "note": "Open palm toward Pip on “great” (~4.4 s), closely following the acting reference." },
+      { "criterion": "emotion", "label": "Matches", "at": 4.5, "note": "Reads as sarcastic." },
+      { "criterion": "unrequested", "label": "Changed", "at": 0.6, "note": "Adds an unscripted “Um,” at 0.6 s." }
+    ]
+  },
+  "summary": [
+    "Only the pinned voice gave the exact delivery and timing that was cast; the gestures then drifted off the words.",
+    "Acting references put the gesture on “great” and toward Pip, but the voice was re-synthesized and the timing stretched.",
+    "An expression image sets the opening face; the model doesn't keep it.",
+    "Prompt alone: the model chooses the voice, the timing and even background music."
+  ]
+}

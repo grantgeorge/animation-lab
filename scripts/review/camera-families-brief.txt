@@ -1,0 +1,5 @@
+You are a senior cinematographer and a product designer reviewing screenshots of an interactive teaching web app, "Cinema Camera Families". It teaches camera craft for AI video prompting in this order: sensor format, focal length, aperture/depth of field, shutter/motion, image rendering (looks). The images are 1440x900 screenshots of different steps.
+Review both:
+1) Cinematography accuracy: does the rendered shot plausibly show what the controls claim (field of view change with sensor, shallow vs deep depth of field, motion blur from shutter angle, rolling-shutter skew vs global shutter, highlight roll-off vs hard clip, film grain/halation)? Flag anything misleading.
+2) Visual design and clarity: hierarchy, legibility of small text, clutter, alignment, anything that looks broken or unfinished, and whether a filmmaker would understand each step.
+Be terse: bullets only, grouped per image, each with a concrete fix. End with the top 5 fixes ranked.

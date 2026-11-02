@@ -1,0 +1,23 @@
+/* Design tokens. Mirrored in src/lib/tokens.ts for three.js materials. */
+:root {
+  --color-stage-void: #07090e;
+  --color-stage-floor: #141922;
+  --color-ink-0: #f2f5f9;
+  --color-ink-1: #b9c2cf;
+  --color-ink-2: #7c8796;
+  --color-ink-3: #4a5465;
+  --color-glass: rgb(14 18 26 / 0.62);
+  --color-glass-solid: rgb(14 18 26 / 0.9);
+  --color-glass-border: rgb(255 255 255 / 0.08);
+  --color-glass-hi: rgb(255 255 255 / 0.14);
+  --color-focal: #5fe3ff;
+  --color-focal-text: #8febff;
+  --color-distance: #ffb547;
+  --color-subject: #8ef0c3;
+  --color-danger: #ff6b6b;
+  --radius-chip: 8px;
+  --radius-control: 10px;
+  --radius-panel: 14px;
+  --radius-bezel: 20px;
+  --ease-ui: cubic-bezier(0.2, 0, 0, 1);
+}

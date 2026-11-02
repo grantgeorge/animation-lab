@@ -1,0 +1,43 @@
+/* Animation History page. Plain CSS on top of the shared tokens. */
+.ctl-btn {
+  height: 30px;
+  min-width: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-control);
+  background: rgb(255 255 255 / 0.07);
+  color: var(--color-ink-1);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 150ms var(--ease-ui);
+}
+.ctl-btn:hover { background: rgb(255 255 255 / 0.14); }
+.ctl-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.ctl-btn-primary { background: #e9eef4; color: #0b0e14; }
+.ctl-btn-primary:hover { background: var(--color-distance); }
+.ctl-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--color-ink-1);
+  font-size: 12px;
+}
+.ctl-chip:hover { background: rgb(255 255 255 / 0.1); }
+.ctl-chip-on { border-color: rgb(142 240 195 / 0.45); color: var(--color-ink-0); background: rgb(142 240 195 / 0.08); }
+
+.history-root[data-nomotion="1"] * { transition: none !important; animation: none !important; }
+
+/* Director's note on monochrome drawings: mark the paint region, never recolor graphite. */
+.note-scarf [data-target="scarf"] { fill: url(#note-hatch) !important; stroke: #2f6fd0 !important; }
+
+.era-stop[aria-current="step"] { background: #e9eef4; color: #0b0e14; }
+.era-stop[aria-current="step"] .era-num { color: #0b0e14; opacity: 0.6; }
+
+.prose-history p + p { margin-top: 0.6em; }
+
+details.drawer > summary { list-style: none; cursor: pointer; }
+details.drawer > summary::-webkit-details-marker { display: none; }
+details.drawer[open] > summary .chev { transform: rotate(90deg); }

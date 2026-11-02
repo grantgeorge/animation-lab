@@ -1,0 +1,451 @@
+{
+ "id": "conditioning-v1",
+ "look": "painted-cel",
+ "brief": "A late-1930s painted-cel animated film: characters with inked contour lines and flat opaque gouache-like paint with one soft shadow tone, over a rich watercolor-and-gouache background painting with warm glowing lamplight and atmospheric depth.\nThe scene: a night street: a warm plaster wall with an arched doorway and a green door, a glowing wall lamp above the door, a dark red brick wall on the left, a black iron street lantern in the right foreground, and a clock tower against the dark blue night sky behind.\nThe characters: Bram, a tall, sturdy lamplighter with a charcoal flat cap, brown hair, a big round nose, rosy cheeks, a thick curled handlebar moustache, a long deep-red wool coat with brass buttons and flap pockets over a dark sweater, a long cream knitted scarf with fringed ends wrapped around his neck with one end hanging down his chest, and dark trousers; and Pip, a small child about half Bram's height with auburn hair, wearing a yellow sou'wester rain hat, a yellow duffle raincoat with dark toggles, black trousers and teal rain boots.\nOne continuous six-second shot with a completely fixed, wide camera. Bram stands in the middle of the frame facing us; the arched doorway is just to his right.\n0-1s: Bram waits by the lamplit doorway and the green door swings open.\n1-2s: Pip peeks out around the door frame and steps out beside it; Bram hears something.\n2-4s: Bram turns toward Pip and waves back with his right hand raised in front of him; Pip waves eagerly with one arm out to the side.\n4-6s: Pip gives a happy hop and heads back inside; Bram settles, smiling. Bram's scarf stays wrapped around his neck and its end sways slightly.\nNo other characters, no cuts, no text, no dialogue, no music.",
+ "conditions": [
+  {
+   "id": "text",
+   "title": "Description only",
+   "endpointId": "minimax/h3-max/text-to-video",
+   "inputs": [
+    "Text brief"
+   ],
+   "parameters": {
+    "duration": 6,
+    "resolution": "768P",
+    "aspect_ratio": "16:9",
+    "prompt_expansion_mode": "disabled"
+   }
+  },
+  {
+   "id": "references",
+   "title": "With references",
+   "endpointId": "minimax/h3-max/reference-to-video",
+   "inputs": [
+    "Text brief",
+    "Painted key frame (Image 1)",
+    "Bram reference (Image 2)",
+    "Pip reference (Image 3)",
+    "Lab 3D animatic (Video 1)"
+   ],
+   "parameters": {
+    "duration": 6,
+    "resolution": "768P",
+    "aspect_ratio": "16:9",
+    "prompt_expansion_mode": "disabled"
+   },
+   "promptAddendum": "Use Image 1 for the art style, the set, the lighting and the camera composition. Image 2 shows Bram and Image 3 shows Pip: match their designs, proportions and colors exactly.\nFollow the staging and timing of the actions in Video 1, a simple 3D animatic of the same scene, but do not copy its 3D rendering style: keep the painted-cel look of Image 1."
+  }
+ ],
+ "references": [
+  {
+   "assetId": "still-multiplane",
+   "label": "Image 1 · painted key frame (approved chapter 2 still)"
+  },
+  {
+   "assetId": "ref-paint-bram",
+   "label": "Image 2 · Bram"
+  },
+  {
+   "assetId": "ref-paint-pip",
+   "label": "Image 3 · Pip"
+  },
+  {
+   "assetId": "ref-lab-animatic",
+   "label": "Video 1 · lab 3D animatic (staging and timing)"
+  }
+ ],
+ "heroTakeId": "exp-refs-2",
+ "takes": [
+  {
+   "id": "exp-text-1",
+   "condition": "text",
+   "index": 1,
+   "assetId": "exp-text-1",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Partly matches",
+     "at": 0,
+     "note": "Bram is a portlier redesign in a long double-breasted red coat with his hands in his pockets; Pip wears a yellow hood rather than a sou'wester."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Long cream scarf throughout."
+    },
+    {
+     "criterion": "beats",
+     "label": "Partly matches",
+     "at": 4,
+     "note": "Pip peeks (~2 s), steps out (~3 s), waves (~5 s) and heads back in (~5.9 s). Bram raises a hand near his face (~4 s) rather than a clear wave back."
+    },
+    {
+     "criterion": "composition",
+     "label": "Changed",
+     "at": 0,
+     "note": "An invented set: a stone-arched green door with the lamp above it, the lantern right of the door."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Changed",
+     "at": 0,
+     "note": "A town of houses and a tall clock tower appear behind the wall."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 5,
+     "note": "Pip's peek and wave are lively; Bram's reaction is small."
+    }
+   ]
+  },
+  {
+   "id": "exp-text-2",
+   "condition": "text",
+   "index": 2,
+   "assetId": "exp-text-2",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Partly matches",
+     "at": 4,
+     "note": "Same redesigned Bram and hooded Pip as A1."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 4,
+     "note": "Pip peeks (~2 s) and steps out, Bram waves back with his hand raised (~4 s), Pip waves (~4–5 s) and hops back inside (~5.9 s)."
+    },
+    {
+     "criterion": "composition",
+     "label": "Changed",
+     "at": 0,
+     "note": "The same invented arched door and street as A1."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Changed",
+     "at": 0,
+     "note": "Town and clock tower added."
+    },
+    {
+     "criterion": "performance",
+     "label": "Matches",
+     "at": 4,
+     "note": "Clear, warm exchange of waves."
+    }
+   ]
+  },
+  {
+   "id": "exp-text-3",
+   "condition": "text",
+   "index": 3,
+   "assetId": "exp-text-3",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Partly matches",
+     "at": 4.1,
+     "note": "Bram is close to the brief but heavier; Pip has a hood and auburn hair."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 4.1,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 4.1,
+     "note": "Pip peeks (~2 s) and steps out (~3 s); Bram turns and waves back, facing camera (~4 s); Pip waves (~5 s) and goes back in (~5.9 s)."
+    },
+    {
+     "criterion": "composition",
+     "label": "Changed",
+     "at": 0,
+     "note": "Invented set with a lit, curtained window right of the door."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Changed",
+     "at": 0,
+     "note": "Town, window and clock tower added."
+    },
+    {
+     "criterion": "performance",
+     "label": "Matches",
+     "at": 4.1,
+     "note": "The most appealing text-only take: Bram's wave and Pip's delight read clearly."
+    }
+   ]
+  },
+  {
+   "id": "exp-text-4",
+   "condition": "text",
+   "index": 4,
+   "assetId": "exp-text-4",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Partly matches",
+     "at": 4,
+     "note": "The same drifts as the other text-only takes."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Partly matches",
+     "at": 3,
+     "note": "Bram gestures off to the left (~3 s) before turning to wave back (~4–5 s); Pip peeks, waves and goes back in."
+    },
+    {
+     "criterion": "composition",
+     "label": "Changed",
+     "at": 0,
+     "note": "Invented set, consistent with A1–A3."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Changed",
+     "at": 3,
+     "note": "Town and clock tower added; an unprompted gesture away from Pip."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 4,
+     "note": "Readable, but the extra gesture muddies the reaction."
+    }
+   ]
+  },
+  {
+   "id": "exp-refs-1",
+   "condition": "references",
+   "index": 1,
+   "assetId": "exp-refs-1",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Matches",
+     "at": 3,
+     "note": "Bram and Pip match Image 2 and Image 3, including relative height."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 4,
+     "note": "Follows the animatic: Pip hidden at 0 s, peeks (~1 s), steps out (~2 s), Bram turns (~4 s) and waves back with his back to camera (~5 s), Pip back at the door by ~5.9 s."
+    },
+    {
+     "criterion": "composition",
+     "label": "Matches",
+     "at": 0,
+     "note": "The camera, wall, doorway, lantern and clock tower match the key frame."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Matches",
+     "note": "No new objects or cuts observed."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 5,
+     "note": "Staging follows the animatic, so Bram's face is hidden while he waves."
+    }
+   ]
+  },
+  {
+   "id": "exp-refs-2",
+   "condition": "references",
+   "index": 2,
+   "assetId": "exp-refs-2",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Matches",
+     "at": 5,
+     "note": "Both characters match the references throughout."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 5,
+     "note": "Same staging and timing as the animatic; Pip smiles from the doorway as Bram waves back (~5 s)."
+    },
+    {
+     "criterion": "composition",
+     "label": "Matches",
+     "at": 0,
+     "note": "Matches the key frame; the door starts closed with Pip hidden, as in the animatic."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Matches",
+     "note": "No new objects or cuts observed."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 5,
+     "note": "Clear staging; Bram's reaction is played with his back to camera."
+    }
+   ]
+  },
+  {
+   "id": "exp-refs-3",
+   "condition": "references",
+   "index": 3,
+   "assetId": "exp-refs-3",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Matches",
+     "at": 0,
+     "note": "Matches the references."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 4,
+     "note": "Nearly identical to B1 and B2."
+    },
+    {
+     "criterion": "composition",
+     "label": "Matches",
+     "at": 0,
+     "note": "Matches the key frame."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Matches",
+     "note": "No new objects or cuts observed."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 4,
+     "note": "Very little variation between reference takes: consistency at the cost of choice."
+    }
+   ]
+  },
+  {
+   "id": "exp-refs-4",
+   "condition": "references",
+   "index": 4,
+   "assetId": "exp-refs-4",
+   "observations": [
+    {
+     "criterion": "identity",
+     "label": "Matches",
+     "at": 0,
+     "note": "Matches the references."
+    },
+    {
+     "criterion": "scarf",
+     "label": "Matches",
+     "at": 0,
+     "note": "Cream scarf."
+    },
+    {
+     "criterion": "beats",
+     "label": "Matches",
+     "at": 4,
+     "note": "Follows the animatic."
+    },
+    {
+     "criterion": "composition",
+     "label": "Matches",
+     "at": 0,
+     "note": "Matches the key frame."
+    },
+    {
+     "criterion": "unrequested",
+     "label": "Matches",
+     "note": "No new objects or cuts observed."
+    },
+    {
+     "criterion": "performance",
+     "label": "Partly matches",
+     "at": 5,
+     "note": "Same staging limits as the other reference takes."
+    }
+   ]
+  }
+ ],
+ "revision": {
+  "sourceTakeId": "exp-refs-2",
+  "assetId": "exp-revision",
+  "keyframeAssetId": "exp-revision-keyframe",
+  "endpointId": "minimax/h3-max/reference-to-video",
+  "operation": "Keyframe edit (GPT Image 2.5 Sunburst) + reference-guided regeneration (H3 Max)",
+  "instruction": "Recreate Video 1 shot for shot: the same characters, the same performance and timing, the same fixed camera, background and lighting.\nThe only change: Bram's scarf is now blue, exactly as in the opening frame. Keep it blue in every frame.",
+  "observations": [
+   {
+    "criterion": "scarf",
+    "label": "Matches",
+    "at": 0,
+    "note": "The scarf is blue in every sampled frame, 0–5.9 s."
+   },
+   {
+    "criterion": "identity",
+    "label": "Matches",
+    "at": 4,
+    "note": "Bram and Pip keep their designs."
+   },
+   {
+    "criterion": "composition",
+    "label": "Matches",
+    "at": 0,
+    "note": "Camera, set and lighting match the source take."
+   },
+   {
+    "criterion": "performance",
+    "label": "Changed",
+    "at": 4.5,
+    "note": "The wave runs late: at 4.5 s the source Bram is mid-wave while the revised Bram's arm is still down; it comes up by ~5 s. Frame differences peak at 3.5–4 s."
+   },
+   {
+    "criterion": "unrequested",
+    "label": "Partly matches",
+    "at": 4,
+    "note": "Every frame was re-synthesized, so paint texture and reflections differ throughout, even where nothing was meant to change."
+   }
+  ]
+ },
+ "about": "Draft tier. Both conditions used MiniMax H3 Max on fal on 2026-11-01 with the same brief, duration, resolution and aspect ratio and prompt expansion disabled, but through different endpoints (text-to-video vs reference-to-video), so this is a workflow comparison, not a controlled benchmark of one parameter. No seeds were set. The reference images were upscaled 2× to meet the endpoint's 256 px minimum. Four takes per condition show behavior; they are not a success rate.",
+ "reviewStatus": "Draft notes: written by Claude on 2026-11-01 from frames sampled once per second, full-resolution spot checks and pixel-difference measurements, against the brief and the approved references. Awaiting approval by a human editor. Timestamps are approximate (±0.5 s)."
+}
