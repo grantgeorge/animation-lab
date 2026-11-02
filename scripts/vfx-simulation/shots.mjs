@@ -19,8 +19,7 @@ page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
 // [name, query]
 const shots = [
   ["01-compare-crown", "mode=experiment&exp=bucket&compare=1&tr=cartoon&t=1.55"],
-  ["02-cartoon-hold", "mode=experiment&exp=bucket&compare=0&tr=cartoon&t=1.6"],
-  ["03-realistic-spray", "mode=experiment&exp=bucket&compare=0&tr=real&t=1.3"],
+  ["03-realistic-sheet", "mode=experiment&exp=bucket&compare=0&tr=real&t=1.3"],
   ["04-drawn-key", "mode=experiment&exp=bucket&compare=0&tr=drawn&t=1.6"],
   ["05-drawn-impact-frame", "mode=experiment&exp=bucket&compare=0&tr=drawn&t=1.333"],
   ["06-cartoon-anticipation", "mode=experiment&exp=bucket&compare=0&tr=cartoon&t=1.0"],
@@ -35,11 +34,14 @@ const shots = [
   ["15-magic-split", "mode=experiment&exp=magic&split=1&t=1.7"],
   ["16-drawn-fx-smear", "mode=experiment&exp=drawn&look=stylized&motion=keyed&t=0.79"],
   ["17-realistic-retimed-low-g", "mode=experiment&exp=bucket&compare=1&tr=real&g=0.5&styl=1&t=1.6"],
+  ["18-kick-contact", "mode=experiment&exp=bucket&compare=0&tr=cartoon&t=0.84"],
+  ["19-drawn-fx-impact-flash", "mode=experiment&exp=drawn&look=stylized&motion=keyed&split=1&t=0.835"],
 ];
 for (const [name, q] of shots) {
   if (filter && !filter.split(",").some((f) => name.includes(f))) continue;
   await page.goto(`${base}/labs/vfx-simulation?${q}${process.env.E2E ? "&e2e=1" : ""}`, { waitUntil: "networkidle" });
   await page.waitForSelector("[data-testid=lab-root][data-ready='1']", { timeout: 120000 });
+  if (q.includes("exp=bucket")) await page.waitForSelector("[data-testid=lab-root][data-baked='1']", { timeout: 120000 });
   await page.waitForTimeout(Number(process.env.WAIT ?? 1500));
   await page.screenshot({ path: `${out}/${name}.png` });
   console.log("shot", name);

@@ -11,7 +11,7 @@ A rig turns a sculpted model into a puppet. It has three parts:
 
 The lab poses the real cast models on a turntable stage. The display can be Mesh, X-ray, Weights or Skeleton, and the camera Front, ¾, Side, or Arm (a close-up that follows the elbow). A Bram/Pip toggle shows one skeleton driving two bodies.
 
-- **FK & IK.** Pick a joint on the stage or from the list, and rotate it with named axes (Raise, Swing, Twist, Bend…).
+- **FK & IK.** Drag any joint on the stage to rotate it (the bone swings toward the pointer, within the joint's limits), or pick it on the stage or from the list and use its named axes (Raise, Swing, Twist, Bend…). With the legs on IK, drag the hips down to squat.
   - Switch the left arm or the legs to IK, then drag the gold hand target (arrow keys work, with Shift for fine steps). The pole vector swings the elbow.
   - Readouts show the rotations IK wrote. "Too far" means the arm has extended as far as it goes.
   - Switching a limb back to FK keeps the pose, the way a production FK/IK match does.
@@ -41,6 +41,7 @@ The lab poses the real cast models on a turntable stage. The display can be Mesh
 - `RigStage.tsx`: one `<Canvas>`; everything runs in `FrameOrchestrator`'s `renderFrame` through a `StageView` class.
   - Each frame it applies the FK pose, the hip drop, leg IK and arm IK, then measures and draws the skeleton overlay: octahedral bones drawn on top, plus the ghost, target, pole and mark.
   - Joint pickers, the IK target and labels are DOM buttons, projected every frame.
+  - Dragging a joint is relative: the far end of its bone moves as far as the pointer does, and `aimJoint` finds slider values for that end with a short coordinate descent over the joint's own axes, within its limits (twist and turn are left alone because they never move the end). So a hinge stays a hinge, and the sliders update live. With IK legs, dragging the hips sets the hip drop instead.
   - The GLB is cloned with `SkeletonUtils`. Geometry and materials are per-instance copies.
 - `exercises.ts`: the checks run on measurements the stage publishes.
 

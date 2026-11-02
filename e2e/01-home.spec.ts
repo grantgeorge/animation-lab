@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("home lists the available labs and concept labs that are not links", async ({ page }) => {
   await page.goto("/");
-  for (const id of ["lens-and-framing", "camera-movement", "lighting-studio", "timing-and-spacing", "character-acting", "animation-style", "shot-coverage", "facial-animation", "staging-and-blocking", "storyboards-animatics", "color-scripting", "camera-families", "animation-camera", "grading-finishing", "painterly-textures", "environment-depth", "editing-rhythm", "vfx-simulation", "character-rigging", "character-design", "2d-vs-3d"]) {
+  for (const id of ["lens-and-framing", "camera-movement", "lighting-studio", "timing-and-spacing", "character-acting", "animation-style", "shot-coverage", "facial-animation", "staging-and-blocking", "storyboards-animatics", "color-scripting", "camera-families", "animation-camera", "grading-finishing", "painterly-textures", "environment-depth", "editing-rhythm", "vfx-simulation", "character-rigging", "character-design", "2d-vs-3d", "stylized-rendering", "secondary-motion", "compositing-passes", "ai-shot-continuity", "voice-direction", "procedural-vs-keyframe"]) {
     await expect(page.getByTestId(`lab-card-${id}`)).toHaveAttribute("href", `/labs/${id}`);
   }
   for (const id of ["shot-types-and-composition", "focus-and-dof", "ai-shot-continuity"]) {

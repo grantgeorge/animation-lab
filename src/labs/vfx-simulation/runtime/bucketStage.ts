@@ -67,6 +67,8 @@ const tmpS = new Vector3();
 const tmpP = new Vector3();
 const CARTOON_BLUE = "#3aaaf0";
 const INK = PAL.ink;
+/** The cartoon water keeps a line, in a deep blue so it sits with the un-outlined 3D set. */
+const WATER_LINE = "#124a78";
 
 export interface BucketView {
   treatment: Treatment;
@@ -161,6 +163,7 @@ export class BucketStage {
   private flashCam = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
   private flashSplat: Mesh;
   private flashBg: Mesh;
+  private flashLines: Mesh;
   private white = new MeshBasicMaterial({ color: "#ffffff" });
   readonly key: DirectionalLight;
 
@@ -226,7 +229,7 @@ export class BucketStage {
     // cartoon
     const blobGeo = new SphereGeometry(1, 28, 18);
     this.blobs = new InstancedMesh(blobGeo, new MeshToonMaterial({ color: CARTOON_BLUE, gradientMap: this.ramp, emissive: "#0c3a5c", emissiveIntensity: 0.35 }), 32);
-    this.blobLines = new InstancedMesh(blobGeo, new MeshBasicMaterial({ color: INK, side: 1 }), 32);
+    this.blobLines = new InstancedMesh(blobGeo, new MeshBasicMaterial({ color: WATER_LINE, side: 1 }), 32);
     this.shines = new InstancedMesh(new CircleGeometry(1, 18), new MeshBasicMaterial({ color: "#ffffff" }), 32);
     for (const m of [this.blobs, this.blobLines, this.shines]) {
       m.instanceMatrix.setUsage(DynamicDrawUsage);
@@ -236,16 +239,16 @@ export class BucketStage {
     this.crownGeo = new BufferGeometry();
     initCrownGeometry(this.crownGeo);
     this.crown = new Mesh(this.crownGeo, new MeshToonMaterial({ color: CARTOON_BLUE, gradientMap: this.ramp, side: DoubleSide, emissive: "#0c3a5c", emissiveIntensity: 0.35 }));
-    this.crownLine = new Mesh(this.crownGeo, outlineMaterial(INK, 0.009));
+    this.crownLine = new Mesh(this.crownGeo, outlineMaterial(WATER_LINE, 0.008));
     this.puddleGeo = new BufferGeometry();
     initDiscGeometry(this.puddleGeo);
     this.puddleToon = new Mesh(this.puddleGeo, new MeshToonMaterial({ color: "#5ec2f5", gradientMap: this.ramp, emissive: "#0c3a5c", emissiveIntensity: 0.2 }));
     this.puddleToon.position.y = 0.006;
-    this.puddleToonLine = new Mesh(this.puddleGeo, new MeshBasicMaterial({ color: INK }));
+    this.puddleToonLine = new Mesh(this.puddleGeo, new MeshBasicMaterial({ color: WATER_LINE }));
     this.puddleToonLine.position.y = 0.004;
     const disc = new CircleGeometry(1, 22).rotateX(-Math.PI / 2);
     this.sats = new InstancedMesh(disc, new MeshToonMaterial({ color: "#5ec2f5", gradientMap: this.ramp }), 16);
-    this.satLines = new InstancedMesh(disc, new MeshBasicMaterial({ color: INK }), 16);
+    this.satLines = new InstancedMesh(disc, new MeshBasicMaterial({ color: WATER_LINE }), 16);
     for (const m of [this.sats, this.satLines]) {
       m.instanceMatrix.setUsage(DynamicDrawUsage);
       m.frustumCulled = false;
@@ -282,7 +285,7 @@ export class BucketStage {
     this.drawnShadows.add(s1, s2);
     this.drawn.add(this.decalMesh, this.cardMesh, this.cardFrame, this.drawnShadows);
     // inspect: legibility raster
-    this.raster = new InstancedMesh(new PlaneGeometry(GRID.cell * 0.86, GRID.cell * 0.86), new MeshBasicMaterial({ color: "#ffffff", transparent: true, opacity: 0.45, depthTest: false, depthWrite: false }), GW * GH);
+    this.raster = new InstancedMesh(new PlaneGeometry(GRID.cell * 0.86, GRID.cell * 0.86), new MeshBasicMaterial({ color: "#ffffff", transparent: true, opacity: 0.62, depthTest: false, depthWrite: false }), GW * GH);
     this.raster.instanceColor = new InstancedBufferAttribute(new Float32Array(GW * GH * 3), 3);
     this.raster.frustumCulled = false;
     this.raster.renderOrder = 20;
@@ -291,7 +294,8 @@ export class BucketStage {
     // impact flash overlay
     this.flashBg = new Mesh(new PlaneGeometry(2, 2), new MeshBasicMaterial({ color: INK, depthTest: false, transparent: true }));
     this.flashSplat = new Mesh(new BufferGeometry(), new MeshBasicMaterial({ color: "#ffffff", depthTest: false }));
-    this.flashScene.add(this.flashBg, this.flashSplat);
+    this.flashLines = new Mesh(new BufferGeometry(), new MeshBasicMaterial({ color: "#ffffff", depthTest: false, transparent: true, opacity: 0.85, side: DoubleSide }));
+    this.flashScene.add(this.flashBg, this.flashLines, this.flashSplat);
   }
 
   private buildSet(low: boolean) {
@@ -407,6 +411,7 @@ export class BucketStage {
     this.cardFrame.visible = drawn && v.inspect;
     if (this.solverGrid) this.solverGrid.visible = tr === "real" && v.raster && v.inspect;
     this.showRaster(grid, v);
+    if ((out.phase === "rest" || out.phase === "") && tq >= v.beat.kick - 0.25 && tq < v.beat.release) out.phase = tq < v.beat.kick ? "wind-up" : "kick";
     return out;
   }
 
@@ -661,6 +666,23 @@ export class BucketStage {
     }
     this.flashSplat.geometry.dispose();
     this.flashSplat.geometry = new ShapeGeometry(shape);
+    // radiating impact streaks from the splat to the frame edge
+    tmpP.set(dw.flashAt[0], dw.flashAt[1] - 0.06, CARD.z).project(cam);
+    const cx = tmpP.x;
+    const cy = tmpP.y;
+    const tris: number[] = [];
+    for (let i = 0; i < 22; i++) {
+      const a = (i / 22) * Math.PI * 2 + 0.13 * Math.sin(i * 7.1);
+      const r0 = 0.32 + 0.12 * ((i * 37) % 5) / 5;
+      const w = 0.012 + 0.01 * ((i * 13) % 3);
+      const ca = Math.cos(a);
+      const sa = Math.sin(a);
+      tris.push(cx + ca * r0 * 0.6, cy + sa * r0, 0, cx + ca * 3 - sa * w * 6, cy + sa * 3 + ca * w * 6, 0, cx + ca * 3 + sa * w * 6, cy + sa * 3 - ca * w * 6, 0);
+    }
+    const sg = new BufferGeometry();
+    sg.setAttribute("position", new Float32BufferAttribute(tris, 3));
+    this.flashLines.geometry.dispose();
+    this.flashLines.geometry = sg;
   }
 
   /** The impact frame: the picture drops to two flat values (silhouettes on ink), then the splat. */

@@ -23,7 +23,7 @@ export function treatmentReading(tr: Treatment, p: Phys, tm: Timing): string {
   const s: string[] = [];
   if (tr === "real") {
     s.push(`${Math.round(p.count).toLocaleString("en-US")} droplets, solved at 120 steps a second with nobody choosing a single pose.`);
-    s.push(p.stylization > 0.15 ? `An art-directed retime slows the sim to ${Math.round((1 - 0.68 * p.stylization) * 100)}% around the impact, which is how effects artists make real sims readable.` : "It plays at true physical speed: the whole splash is over in about a quarter of a second.");
+    s.push(p.stylization > 0.15 ? `An art-directed retime slows the sim to ${Math.round((1 - 0.68 * p.stylization) * 100)}% around the impact, the usual first move to make a real sim readable. Slower is not the same as clearer: the spray still changes shape on every frame.` : "It plays at true physical speed: the whole splash is over in about a quarter of a second.");
     if (tm.hold > 0) s.push(`A ${tm.hold}-frame freeze on the peak makes the shape readable, but a frozen sim reads as a stopped video, not a held pose.`);
   } else if (tr === "cartoon") {
     s.push(tm.antic > 0 ? `The bucket rears back for ${tm.antic} frames while the water bulges over the lip: the audience is told where to look before anything happens.` : "No anticipation: the bucket goes straight over, so the first frames of the splash catch the eye unprepared.");

@@ -233,4 +233,7 @@ button.vx-chip-label:hover { background:#000000e0; }
 }
 .vx-score { container-type:size; }
 @container (max-height:250px) { .vx-score p { display:none; } .vx-score ul { gap:6px; } .vx-score b { font-size:15px; } .vx-score-sub { display:none; } .vx-score { gap:8px; padding:12px 14px; } }
-.vx-chart-sync { max-height:110px; }
+.vx-chart-sync { max-height:190px; }
+.vx-flinch-line { fill:none; stroke-width:2.2; stroke-linejoin:round; }
+.vx-flinch-line-a { stroke:#4fb8ff; } .vx-flinch-line-b { stroke:#ff8fd0; stroke-dasharray:5 3; }
+.vx-root[data-exp=sync] .vx-sync-chart { flex:0 1 auto; }

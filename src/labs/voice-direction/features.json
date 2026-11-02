@@ -1,0 +1,83 @@
+{
+ "source": "Prosody measured by scripts/acting-media/analyze-voices.mjs (F0 by autocorrelation, loudness as 90th-percentile RMS in dBFS) for the published take of each delivery; word timings from takes.json (ElevenLabs Scribe v2).",
+ "takes": {
+  "neutral": {
+   "take": "b",
+   "duration": 2.35,
+   "leadIn": 0.2,
+   "speechEnd": 2.1,
+   "f0Median": 133,
+   "f0Range": 91,
+   "loudnessDb": -20.9,
+   "pauseBeforeGreat": 0.16,
+   "greatF0Trend": 9,
+   "wordsPerSecond": 2.11,
+   "longestGap": 0.34
+  },
+  "excited": {
+   "take": "b",
+   "duration": 2.43,
+   "leadIn": 0.34,
+   "speechEnd": 2.14,
+   "f0Median": 262,
+   "f0Range": 211,
+   "loudnessDb": -17.3,
+   "pauseBeforeGreat": 0.06,
+   "greatF0Trend": -78,
+   "wordsPerSecond": 2.22,
+   "longestGap": 0.32
+  },
+  "sarcastic": {
+   "take": "b",
+   "duration": 2.77,
+   "leadIn": 0.32,
+   "speechEnd": 2.52,
+   "f0Median": 136,
+   "f0Range": 328,
+   "loudnessDb": -22.1,
+   "pauseBeforeGreat": 0.54,
+   "greatF0Trend": 1,
+   "wordsPerSecond": 1.82,
+   "longestGap": 0.54
+  },
+  "nervous": {
+   "take": "b",
+   "duration": 3.24,
+   "leadIn": 0.34,
+   "speechEnd": 2.82,
+   "f0Median": 167,
+   "f0Range": 300,
+   "loudnessDb": -20.8,
+   "pauseBeforeGreat": 0.2,
+   "greatF0Trend": 110,
+   "wordsPerSecond": 1.61,
+   "longestGap": 0.62
+  },
+  "frustrated": {
+   "take": "a",
+   "duration": 2.27,
+   "leadIn": 0.26,
+   "speechEnd": 2.02,
+   "f0Median": 150,
+   "f0Range": 337,
+   "loudnessDb": -18.4,
+   "pauseBeforeGreat": 0.16,
+   "greatF0Trend": -7,
+   "wordsPerSecond": 2.27,
+   "longestGap": 0.28
+  },
+  "disappointed": {
+   "take": "a",
+   "duration": 3.55,
+   "leadIn": 1.2,
+   "speechEnd": 3.12,
+   "f0Median": 113,
+   "f0Range": 296,
+   "loudnessDb": -26.6,
+   "pauseBeforeGreat": 0.18,
+   "greatF0Trend": -13,
+   "wordsPerSecond": 2.08,
+   "longestGap": 0.62
+  }
+ }
+}

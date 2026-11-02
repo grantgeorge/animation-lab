@@ -9,7 +9,7 @@ describe("lab registry", () => {
       if (l.status === "available") expect(l.entry && l.entry in LAB_LOADERS).toBe(true);
       else expect(l.entry).toBeNull();
     }
-    expect(availableLabs().map((l) => l.id)).toEqual(["lens-and-framing", "camera-movement", "camera-families", "animation-camera", "lighting-studio", "grading-finishing", "painterly-textures", "timing-and-spacing", "animation-style", "character-acting", "shot-coverage", "staging-and-blocking", "environment-depth", "facial-animation", "storyboards-animatics", "editing-rhythm", "color-scripting", "character-rigging", "vfx-simulation", "character-design", "2d-vs-3d"]);
+    expect(availableLabs().map((l) => l.id)).toEqual(["lens-and-framing", "camera-movement", "camera-families", "animation-camera", "lighting-studio", "grading-finishing", "painterly-textures", "timing-and-spacing", "animation-style", "character-acting", "shot-coverage", "staging-and-blocking", "environment-depth", "facial-animation", "stylized-rendering", "storyboards-animatics", "editing-rhythm", "color-scripting", "secondary-motion", "character-rigging", "vfx-simulation", "character-design", "compositing-passes", "2d-vs-3d", "ai-shot-continuity", "voice-direction", "procedural-vs-keyframe"]);
   });
   it("every lab belongs to one of the six disciplines", () => {
     const ids = new Set(DISCIPLINES.map((d) => d.id));

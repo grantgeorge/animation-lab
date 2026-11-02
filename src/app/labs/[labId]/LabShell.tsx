@@ -34,6 +34,12 @@ const LABS: Record<LabModuleId, React.ComponentType> = {
   "character-rigging": dynamic(() => import("@/labs/character-rigging/CharacterRiggingLab"), { ssr: false, loading: Loading }),
   "character-design": dynamic(() => import("@/labs/character-design/CharacterDesignLab"), { ssr: false, loading: Loading }),
   "2d-vs-3d": dynamic(() => import("@/labs/2d-vs-3d/TwoDThreeDLab"), { ssr: false, loading: Loading }),
+  "stylized-rendering": dynamic(() => import("@/labs/stylized-rendering/StylizedRenderingLab"), { ssr: false, loading: Loading }),
+  "secondary-motion": dynamic(() => import("@/labs/secondary-motion/SecondaryMotionLab"), { ssr: false, loading: Loading }),
+  "compositing-passes": dynamic(() => import("@/labs/compositing-passes/CompositingPassesLab"), { ssr: false, loading: Loading }),
+  "ai-shot-continuity": dynamic(() => import("@/labs/ai-shot-continuity/AiShotContinuityLab"), { ssr: false, loading: Loading }),
+  "voice-direction": dynamic(() => import("@/labs/voice-direction/VoiceDirectionLab"), { ssr: false, loading: Loading }),
+  "procedural-vs-keyframe": dynamic(() => import("@/labs/procedural-vs-keyframe/ProceduralKeyframeLab"), { ssr: false, loading: Loading }),
 };
 
 /** Client boundary: labs are WebGL apps and render only in the browser. */

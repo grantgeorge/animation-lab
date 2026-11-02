@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 
-export type LabModuleId = "lens-and-framing" | "camera-movement" | "lighting-studio" | "timing-and-spacing" | "character-acting" | "animation-style" | "shot-coverage" | "facial-animation" | "staging-and-blocking" | "storyboards-animatics" | "color-scripting" | "camera-families" | "animation-camera" | "grading-finishing" | "painterly-textures" | "environment-depth" | "editing-rhythm" | "vfx-simulation" | "character-rigging" | "character-design" | "2d-vs-3d";
+export type LabModuleId = "lens-and-framing" | "camera-movement" | "lighting-studio" | "timing-and-spacing" | "character-acting" | "animation-style" | "shot-coverage" | "facial-animation" | "staging-and-blocking" | "storyboards-animatics" | "color-scripting" | "camera-families" | "animation-camera" | "grading-finishing" | "painterly-textures" | "environment-depth" | "editing-rhythm" | "vfx-simulation" | "character-rigging" | "character-design" | "2d-vs-3d" | "stylized-rendering" | "secondary-motion" | "compositing-passes" | "ai-shot-continuity" | "voice-direction" | "procedural-vs-keyframe";
 export type LabStatus = "available" | "concept";
 export type LabCategory = "camera" | "staging" | "composition" | "lighting" | "focus" | "animation" | "editing" | "lookdev" | "simulation" | "ai";
 

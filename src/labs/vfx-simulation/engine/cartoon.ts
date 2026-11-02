@@ -143,8 +143,9 @@ export function cartoonPose(t: number, b: BeatTimes, p: Phys): CartoonPose {
   // 2. flight: the slab on its drawn arc, stretched by speed, two smaller blobs trailing
   if (t < b.impact) {
     out.phase = "flight";
-    const rs = [0.11, 0.075, 0.05];
-    const lags = [0, 0.2, 0.38];
+    // three overlapping blobs taper into one tongue of water
+    const rs = [0.11, 0.085, 0.06];
+    const lags = [0, 0.12, 0.22];
     for (let i = 0; i < 3; i++) {
       const a = slabArc("cartoon", t - lags[i] * (b.impact - b.release), b, p);
       if (t - lags[i] * (b.impact - b.release) < b.release) continue;
@@ -167,7 +168,8 @@ export function cartoonPose(t: number, b: BeatTimes, p: Phys): CartoonPose {
     return out;
   }
   const pk = crownPeak(p);
-  const jitter = Array.from({ length: n }, (_, k) => turb * 0.25 * wobble(k * 3.1, t * (1 + 4 * turb), 0, 7));
+  // authored asymmetry (the tallest spikes face the camera and lean with the throw) plus turbulence wobble
+  const jitter = Array.from({ length: n }, (_, k) => 0.42 * (hash01(k, 53) - 0.5) + 0.18 * Math.sin(crownAngle(k, n)) + turb * 0.25 * wobble(k * 3.1, t * (1 + 4 * turb), 0, 7));
   const crown: Crown = { x: IMPACT.x, z: IMPACT.z, h: 0, r0: pk.r0, r1: pk.r0, points: n, spike: pk.spike, jitter, thick: pk.thick };
   const tipOf = (k: number, c: Crown, lift = 0): [number, number, number] => {
     const a = crownAngle(k, c.points);
@@ -187,7 +189,9 @@ export function cartoonPose(t: number, b: BeatTimes, p: Phys): CartoonPose {
     out.crown = crown;
     for (let k = 0; k < n; k++) {
       const [x, y, z] = tipOf(k, crown, 0.045 + 0.02 * drift);
-      out.blobs.push({ x, y, z, r: tipR(k) * easeOut(u), stretch: 1 + 0.35 * sq * (1 - drift * 0.5), dx: 0, dy: 1, shine: false });
+      // tip drops are teardrops pulled up and out along the spike, not balls
+      const a = crownAngle(k, n);
+      out.blobs.push({ x, y, z, r: tipR(k) * easeOut(u), stretch: 1.55 + 0.4 * sq * (1 - drift * 0.5), dx: Math.cos(a) * 0.35, dy: 1, shine: false });
       out.top = Math.max(out.top, y + tipR(k));
     }
     return out;

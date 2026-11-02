@@ -23,7 +23,7 @@ export const EXP_INFO: Record<ExpId, { tab: string; title: string; lesson: strin
     tab: "The bucket",
     title: "One bucket, three treatments",
     lesson: LESSON,
-    try: "Turn gravity down, or give the realistic sim a retime with stylization, and watch its legible run grow. Then take the hold off the cartoon crown.",
+    try: "On the realistic sim, push stylization (a retime) and then halve gravity, and watch the legible run: the retime alone barely helps, the two together triple it. Then take the hold off the cartoon crown.",
   },
   sync: {
     tab: "In sync",

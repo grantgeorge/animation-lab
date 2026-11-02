@@ -1,5 +1,5 @@
 {
-  "spentUsd": 10.84,
+  "spentUsd": 10.89,
   "runs": [
     {
       "at": "2026-11-01T19:20:39.167Z",
@@ -184,6 +184,14 @@
       "estimateUsd": 0.05,
       "seconds": 18,
       "requestId": "01a19afe-665b-7720-bb4a-05bdbe8c57af"
+    },
+    {
+      "at": "2026-11-02T15:52:05.421Z",
+      "label": "review 01-compare-crown.jpg+05-drawn-impact-frame.jpg+09-sync-early.jpg+13-rigid-split.jpg",
+      "endpoint": "openrouter/router/vision",
+      "estimateUsd": 0.05,
+      "seconds": 29,
+      "requestId": "01a19cf5-7da0-7993-a0e8-4ebe8714f786"
     }
   ]
 }

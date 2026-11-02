@@ -200,3 +200,48 @@ export const riggingConfig = {
   /** Seconds of the doorway-wave clip looped in the bind-pose comparison. */
   wave: { bram: [2.6, 5.6] as const, pip: [2.6, 4.6] as const },
 } as const;
+
+/**
+ * Procedural vs Keyframed lab: Pip hops down off a crate, authored four ways (metres, degrees; see decisions.md).
+ * Pip and the crate share one frame turned `yawDeg` toward screen right; Pip faces +Z in it and starts with
+ * the feet at z = 0, the crate's front edge at `crate.edgeZ`.
+ */
+export const proceduralConfig = {
+  yawDeg: 62,
+  crate: { heightM: 0.3, minM: 0.15, maxM: 0.6, edgeZ: 0.1, depthM: 0.55, widthM: 0.62 },
+  /** Hip to ankle, and the deepest knee bend the leg mapping allows. */
+  legM: 0.36, crouchMaxDeg: 65,
+  camera: { pos: [0.55, 1.05, 3.7] as const, target: [0.42, 0.5, 0] as const, focal: 40 },
+} as const;
+
+/**
+ * Stylized Rendering lab: one locked-off shot of the doorway set, Bram and Pip held on a frame of the
+ * doorway clip, and the starting values of each look's controls (see decisions.md).
+ */
+export const stylizedConfig = {
+  camera: { position: [-0.15, 1.32, 0.9] as const, target: [0.18, 0.92, -4.0] as const, focal: 30 },
+  /** Held moment of the doorway performance (s): Pip waves, Bram has turned toward him. */
+  holdS: 3.6,
+  cel: { bands: 3, edge: 0.0, floor: 0.38, outlinePx: 1.6 },
+  clay: { roughness: 0.6, sheen: 0.7, wrap: 0.35, blur: 3.2 },
+  halftone: { cellPx: 7, angleDeg: 45 },
+  painterly: { brushPx: 4 },
+} as const;
+
+/**
+ * Voice & Performance Direction lab: the doorway two-shot (metres, degrees; see decisions.md). Pip holds
+ * his mark; Bram stands `near` or `far` from him, then the staging steps him in or out. The locked two-shot
+ * camera has one framing per distance; the close-ups follow each head, cheated toward the two-shot camera.
+ */
+export const voiceConfig = {
+  pip: { mark: [0.75, 0, -3.8] as const, yawDeg: -48 },
+  bram: { z: -3.5 },
+  distance: { near: 1.15, far: 2.3 },
+  twoShot: {
+    near: { position: [0.17, 1.25, -0.65] as const, target: [0.17, 0.95, -3.65] as const },
+    far: { position: [-0.4, 1.3, 0.35] as const, target: [-0.4, 0.95, -3.65] as const },
+    focal: 45,
+  },
+  /** Close-ups: distance from the head, share of the turn toward the two-shot camera, focal length. */
+  closeUp: { bram: { distance: 1.05, cheat: 0.55, focal: 60, lift: 0.04 }, pip: { distance: 0.8, cheat: 0.55, focal: 60, lift: 0.02 } },
+} as const;

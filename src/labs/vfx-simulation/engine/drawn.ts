@@ -69,6 +69,26 @@ export function teardrop(hx: number, hy: number, r: number, tx: number, ty: numb
   return pts;
 }
 
+/**
+ * Bend a shape about a base point: each point rotates by an angle that grows with the square of its
+ * distance from the base (a C-curve, the line of action a 2D effects animator draws through a jet).
+ * Positive bends clockwise (to the right).
+ */
+export function bendAbout(pts: number[], bx: number, by: number, reach: number, amount: number): number[] {
+  const out = pts.slice();
+  for (let i = 0; i < pts.length; i += 2) {
+    const dx = pts[i] - bx;
+    const dy = pts[i + 1] - by;
+    const d = Math.hypot(dx, dy) / reach;
+    const a = -amount * d * d;
+    const c = Math.cos(a);
+    const s = Math.sin(a);
+    out[i] = bx + dx * c - dy * s;
+    out[i + 1] = by + dx * s + dy * c;
+  }
+  return out;
+}
+
 /** A wobbly closed blob (n points) around (x, y) with radii rx, ry. */
 export function blobPoly(x: number, y: number, rx: number, ry: number, n: number, wob: number, seed: number): number[] {
   const pts: number[] = [];
@@ -102,12 +122,14 @@ function crownShapes(cx: number, scale: number, p: Phys, k: number, boilAmt: num
     const dx = Math.sin(a);
     const dy = Math.cos(a);
     const r = (0.034 + 0.012 * hash01(i, 7)) * sz * (1 + 0.35 * p.stylization);
-    // spike: a teardrop whose point sits in the cup and whose head is the crown tip
-    out.push({ kind: "fill", pts: boil(teardrop(bx + dx * len, by + dy * len, r, -dx, -dy, len * 0.92), boilAmt, seed + i), fill: PAL.water, line: 2.6 });
+    // spike: a teardrop whose point sits in the cup and whose head is the crown tip, bent outward along a C-curve
+    const bend = (Math.abs(a) < 0.12 ? 0.15 : Math.sign(a) * 0.55) * (0.8 + 0.4 * hash01(i, 9));
+    const curve = (pts: number[]) => bendAbout(pts, bx, by, len * 1.6, bend);
+    out.push({ kind: "fill", pts: boil(curve(teardrop(bx + dx * len, by + dy * len, r, -dx, -dy, len * 0.92)), boilAmt, seed + i), fill: PAL.water, line: 2.6 });
     // the free drop just past each tip: the classic dotted splash
     const gap = r * 1.9 + 0.012;
-    out.push({ kind: "fill", pts: boil(teardrop(bx + dx * (len + gap + r), by + dy * (len + gap + r), r * 0.62, -dx, -dy, r * 1.1), boilAmt, seed + 40 + i), fill: PAL.water, line: 2.2 });
-    if (Math.abs(a) > 0.3) out.push({ kind: "stroke", pts: boil([bx + dx * len * 0.35 - dy * 0.012, by + dy * len * 0.35 + dx * 0.012, bx + dx * len * 0.75 - dy * 0.016, by + dy * len * 0.75 + dx * 0.016], boilAmt * 0.5, seed + 80 + i), color: PAL.white, width: 2.2 });
+    out.push({ kind: "fill", pts: boil(curve(teardrop(bx + dx * (len + gap + r), by + dy * (len + gap + r), r * 0.62, -dx, -dy, r * 1.1)), boilAmt, seed + 40 + i), fill: PAL.water, line: 2.2 });
+    if (Math.abs(a) > 0.3) out.push({ kind: "stroke", pts: boil(curve([bx + dx * len * 0.35 - dy * 0.012, by + dy * len * 0.35 + dx * 0.012, bx + dx * len * 0.75 - dy * 0.016, by + dy * len * 0.75 + dx * 0.016]), boilAmt * 0.5, seed + 80 + i), color: PAL.white, width: 2.2 });
   }
   // the cup: a wide, low splash body with a shaded underside
   out.push({ kind: "fill", pts: boil(blobPoly(cx, 0.045 * sz, cupW * 1.25, 0.065 * sz, 22, 0.08, seed), boilAmt, seed + 120), fill: PAL.water, line: 2.8 });

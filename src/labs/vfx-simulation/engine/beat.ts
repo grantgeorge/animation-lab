@@ -53,7 +53,7 @@ export const COUNT_RANGE = { min: 300, high: 4800, low: 1200, e2e: 600 } as cons
 export const PIP_X = -0.8;
 export const BUCKET = { x: -0.36, z: 0, rTop: 0.15, rBot: 0.115, h: 0.27, fill: 0.78 } as const;
 /** Where the stylized slab lands. The realistic sim finds its own landing spot. */
-export const IMPACT = { x: 0.3, z: 0.04 } as const;
+export const IMPACT = { x: 0.42, z: 0.04 } as const;
 export const KICK_T = 0.82;
 const f = (n: number) => n / FPS;
 

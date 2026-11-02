@@ -40,7 +40,6 @@ import {
   type Texture,
   type WebGLRenderer,
 } from "three";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { BackSide } from "three";
 import type { CategoryId } from "../engine/prompt";
 import type { CatState } from "../store";
@@ -661,7 +660,7 @@ class RigidDemo implements Demo {
       this.crates.push(g);
       this.scene.add(g);
     }
-    this.ball = new Mesh(new SphereGeometry(BALL_R, 32, 20), new MeshStandardMaterial({ color: "#3a3d42", metalness: 0.6, roughness: 0.35 }));
+    this.ball = new Mesh(new SphereGeometry(BALL_R, 32, 20), new MeshStandardMaterial({ color: "#8e2a22", metalness: 0.45, roughness: 0.38 }));
     this.ball.castShadow = true;
     this.ballToon = new Mesh(new SphereGeometry(BALL_R, 32, 20), new MeshToonMaterial({ color: "#e0453a", gradientMap: this.ramp }));
     this.ballToon.add(new Mesh(this.ballToon.geometry, outlineMaterial(INK, 0.012)));

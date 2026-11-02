@@ -7,6 +7,8 @@ import { FPS, FRAMES, frameOf } from "../engine/timing";
 import { PROMPT_NOTES, categoryPhrase, syncPhrase, treatmentPhrase, type CategoryId } from "../engine/prompt";
 import { categoryReading, legibilityReading, syncReading, treatmentReading } from "../engine/reading";
 import { AREA_MIN, GRID, SOLID_MIN, STABLE_MIN } from "../engine/legibility";
+import { pipClip, pipTiming } from "../engine/pipClip";
+import { sampleTrack } from "@/scene/animation/dsl";
 import { EXP_INFO, LESSON, NOTICE, RELATED, TREATMENT_INFO } from "../content";
 import { capCount, runtime } from "../runtime/Orchestrator";
 import { live, onAfterFrame, useMeasure } from "../runtime/live";
@@ -372,21 +374,44 @@ export function Related() {
   );
 }
 
-/** The sync timeline: where the water lands and where each Pip flinches. */
+const SW = 1000;
+const SH = 170;
+const ST0 = 0.6;
+const ST1 = 2.6;
+const sx = (t: number) => 24 + ((t - ST0) / (ST1 - ST0)) * (SW - 48);
+const STOP = 26;
+const SBASE = SH - 30;
+
+/** The sync timeline: where the water lands, and Pip's keyed flinch curve for both takes. */
 export function SyncChart() {
   const phys = useVX((s) => s.phys);
   const timing = useVX((s) => s.timing.cartoon);
   const offset = useVX((s) => s.offset);
   const a = beatTimes("cartoon", phys, timing);
   const b = beatTimes("cartoon", phys, timing, offset);
-  const W = 1000;
-  const x = (t: number) => 20 + ((t - 0.6) / 1.6) * (W - 40);
+  const curves = useMemo(() => {
+    // how far Pip is thrown back: torso lean plus the hop, sampled from the generated clips
+    const sample = (bt: ReturnType<typeof beatTimes>) => {
+      const clip = pipClip(pipTiming("cartoon", bt, phys.intensity));
+      const torso = clip.tracks.filter((tr) => tr.part === "torso" && tr.ch === "rx");
+      const hop = clip.tracks.filter((tr) => tr.part === "root" && tr.ch === "pz");
+      const pts: string[] = [];
+      for (let t = ST0; t <= ST1 + 1e-6; t += 1 / FPS) {
+        const lean = -torso.reduce((acc, tr) => acc + sampleTrack(tr.keys, t), 0);
+        const back = -hop.reduce((acc, tr) => acc + sampleTrack(tr.keys, t), 0) * 100;
+        const v = Math.max(0, Math.min(1, (lean + back) / 32));
+        pts.push(`${sx(t).toFixed(1)},${(SBASE - v * (SBASE - STOP)).toFixed(1)}`);
+      }
+      return pts.join(" ");
+    };
+    return { a: sample(a), b: sample(b) };
+  }, [a, b, phys.intensity]);
   const head = useRef<SVGLineElement>(null);
   useEffect(
     () =>
       onAfterFrame(() => {
         if (head.current) {
-          const px = String(Math.max(0, Math.min(W, x(live.t))));
+          const px = String(Math.max(0, Math.min(SW, sx(live.t))));
           head.current.setAttribute("x1", px);
           head.current.setAttribute("x2", px);
         }
@@ -395,30 +420,35 @@ export function SyncChart() {
   );
   const lagB = Math.round((b.recoil - b.impact) * FPS);
   const ticks = [];
-  for (let f = Math.ceil(0.6 * FPS); f <= 2.2 * FPS; f++) ticks.push(f);
+  for (let f = Math.ceil(ST0 * FPS); f <= ST1 * FPS; f++) ticks.push(f);
   return (
     <figure className="vx-card vx-sync-chart" data-testid="sync-chart" data-lag={lagB}>
       <figcaption>
-        <span className="vx-eyebrow">THE BEAT, FRAME BY FRAME</span>
+        <span className="vx-eyebrow">THE BEAT, FRAME BY FRAME · HOW FAR PIP IS THROWN BACK (KEYED)</span>
       </figcaption>
-      <svg viewBox={`0 0 ${W} 96`} className="vx-chart vx-chart-sync" role="img" aria-label="Splash and flinch timing">
+      <svg viewBox={`0 0 ${SW} ${SH}`} className="vx-chart vx-chart-sync" role="img" aria-label="Splash and flinch timing">
         {ticks.map((f) => (
-          <line key={f} x1={x(f / FPS)} x2={x(f / FPS)} y1={f % 6 === 0 ? 74 : 78} y2={82} className="vx-grid" />
+          <line key={f} x1={sx(f / FPS)} x2={sx(f / FPS)} y1={f % 6 === 0 ? SBASE + 2 : SBASE + 6} y2={SBASE + 10} className="vx-grid" />
         ))}
-        <rect x={x(a.impact)} width={x(a.holdEnd) - x(a.impact)} y={10} height={64} className="vx-splash-band" />
-        <text x={x(a.impact) + 4} y={22} className="vx-label">splash: lands → crown holds</text>
-        <line x1={x(a.impact)} x2={x(a.impact)} y1={6} y2={82} className="vx-impact" />
+        {[0, 24, 48].map((f) => (
+          <text key={f} x={sx(1 + f / FPS)} y={SH - 4} className="vx-axis" textAnchor="middle">{`${(1 + f / FPS).toFixed(0)}s`}</text>
+        ))}
+        <rect x={sx(a.impact)} width={sx(a.holdEnd) - sx(a.impact)} y={STOP - 14} height={SBASE - STOP + 14} className="vx-splash-band" />
+        <text x={sx(a.impact) + 6} y={STOP - 2} className="vx-label">water lands → crown holds</text>
+        <line x1={sx(a.impact)} x2={sx(a.impact)} y1={STOP - 16} y2={SBASE + 10} className="vx-impact" />
+        <line x1={sx(a.kick)} x2={sx(a.kick)} y1={SBASE - 8} y2={SBASE + 10} className="vx-impact" opacity={0.5} />
+        <text x={sx(a.kick)} y={SH - 4} className="vx-axis" textAnchor="middle">kick</text>
+        <polyline points={curves.a} className="vx-flinch-line vx-flinch-line-a" />
+        <polyline points={curves.b} className="vx-flinch-line vx-flinch-line-b" />
         <g className="vx-flinch vx-flinch-a">
-          <circle cx={x(a.recoil)} cy={40} r={5} />
-          <text x={x(a.recoil) + 8} y={44}>in sync +2 f</text>
+          <circle cx={sx(a.recoil)} cy={SBASE} r={5} />
+          <text x={sx(a.recoil) + 8} y={SBASE - 6}>in sync +2 f</text>
         </g>
         <g className="vx-flinch vx-flinch-b">
-          <circle cx={x(b.recoil)} cy={60} r={5} />
-          <text x={x(b.recoil) + 8} y={64}>yours {lagB >= 0 ? "+" : ""}{lagB} f</text>
+          <circle cx={sx(b.recoil)} cy={SBASE} r={5} />
+          <text x={sx(b.recoil) + 8} y={SBASE + 14}>yours {lagB >= 0 ? "+" : ""}{lagB} f</text>
         </g>
-        <text x={x(0.75)} y={93} className="vx-axis">kick</text>
-        <line x1={x(a.kick)} x2={x(a.kick)} y1={70} y2={82} className="vx-impact" opacity={0.4} />
-        <line ref={head} y1={4} y2={84} className="vx-head" />
+        <line ref={head} y1={STOP - 18} y2={SBASE + 10} className="vx-head" />
       </svg>
     </figure>
   );
